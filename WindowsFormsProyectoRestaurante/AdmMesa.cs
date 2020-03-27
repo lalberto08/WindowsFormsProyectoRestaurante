@@ -28,6 +28,7 @@ namespace WindowsFormsProyectoRestaurante
             }
             return agrega;
         }
+
         public void AsignaMesa(int posMesa, string nombreCliente)
         {
             aMesas[posMesa].pNombreCliente = nombreCliente;
