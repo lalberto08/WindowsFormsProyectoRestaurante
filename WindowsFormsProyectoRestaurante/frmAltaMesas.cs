@@ -17,12 +17,45 @@ namespace WindowsFormsProyectoRestaurante
         {
             InitializeComponent();
             admMesas = aMesas;
+            txtNumMesa.Text = Mesa.RetornaNumMesa().ToString();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (ValidarDescripcion())
+            {
+                string desc = cmbDescripcion.SelectedItem.ToString();
+                int numPersonas = Convert.ToInt32(numUpNumPer.Value.ToString());
+
+                admMesas.AgregaMesas(desc, numPersonas);
+                MessageBox.Show("Mesa Agregada Con Exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //limpia
+                txtNumMesa.Text = Mesa.RetornaNumMesa().ToString();
+                cmbDescripcion.SelectedIndex = -1;
+                numUpNumPer.Value = 1;
+            }
+        }
+        public bool ValidarDescripcion()
+        {
+            bool retorno = false;
+            if (cmbDescripcion.SelectedIndex != -1)
+            {
+                retorno = true;
+            }
+            return retorno;
         }
 
+        private void cmbDescripcion_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbDescripcion.SelectedIndex == -1)
+            {
+                ErrorPMesas.SetError(cmbDescripcion, "Descripcion Vacia");
+            }
+            else
+            {
+                ErrorPMesas.SetError(cmbDescripcion, "");
+            }
+        }
     }
 }

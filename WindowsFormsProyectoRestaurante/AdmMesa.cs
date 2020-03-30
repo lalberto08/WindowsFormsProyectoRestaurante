@@ -16,10 +16,10 @@ namespace WindowsFormsProyectoRestaurante
             aMesas = new Mesa[10];
         }
 
-        public bool AgregaMesas(int numMesa, string desc, int numPersonas)
+        public bool AgregaMesas(string desc, int numPersonas)
         {
             bool agrega = false;
-            Mesa mesa = new Mesa(numMesa, desc, numPersonas);
+            Mesa mesa = new Mesa(desc, numPersonas);
             if (contMesas <= 9)
             {
                 aMesas[contMesas] = mesa;

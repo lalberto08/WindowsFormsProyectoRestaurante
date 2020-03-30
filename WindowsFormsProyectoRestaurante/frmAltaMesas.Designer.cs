@@ -31,16 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.NumUpMesa = new System.Windows.Forms.NumericUpDown();
             this.lblNumPersonas = new System.Windows.Forms.Label();
             this.cmbDescripcion = new System.Windows.Forms.ComboBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.ErrorPMesas = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolPMesas = new System.Windows.Forms.ToolTip(this.components);
             this.numUpNumPer = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.NumUpMesa)).BeginInit();
+            this.txtNumMesa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorPMesas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpNumPer)).BeginInit();
             this.SuspendLayout();
@@ -48,10 +46,10 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(117, 37);
+            this.lblTitulo.Font = new System.Drawing.Font("Tempus Sans ITC", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(96, 37);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(126, 20);
+            this.lblTitulo.Size = new System.Drawing.Size(166, 31);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Alta De Mesas";
             // 
@@ -64,29 +62,6 @@
             this.label2.Size = new System.Drawing.Size(114, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Numero De Mesa";
-            // 
-            // NumUpMesa
-            // 
-            this.NumUpMesa.Location = new System.Drawing.Point(188, 99);
-            this.NumUpMesa.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.NumUpMesa.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NumUpMesa.Name = "NumUpMesa";
-            this.NumUpMesa.Size = new System.Drawing.Size(74, 20);
-            this.NumUpMesa.TabIndex = 0;
-            this.toolPMesas.SetToolTip(this.NumUpMesa, "Selecciona Un Numero De Mesa");
-            this.NumUpMesa.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // lblNumPersonas
             // 
@@ -112,6 +87,7 @@
             this.cmbDescripcion.Size = new System.Drawing.Size(121, 21);
             this.cmbDescripcion.TabIndex = 1;
             this.toolPMesas.SetToolTip(this.cmbDescripcion, "Seleccione Un Tipo De Mesa");
+            this.cmbDescripcion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbDescripcion_Validating);
             // 
             // lblDescripcion
             // 
@@ -126,25 +102,14 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(66, 284);
+            this.btnGuardar.Location = new System.Drawing.Point(84, 270);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 33);
+            this.btnGuardar.Size = new System.Drawing.Size(196, 42);
             this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.toolPMesas.SetToolTip(this.btnGuardar, "Click Para Guardar");
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(215, 284);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 33);
-            this.btnSalir.TabIndex = 4;
-            this.btnSalir.Text = "Salir";
-            this.toolPMesas.SetToolTip(this.btnSalir, "Click Para Salir");
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // ErrorPMesas
             // 
@@ -166,32 +131,40 @@
             this.numUpNumPer.Name = "numUpNumPer";
             this.numUpNumPer.Size = new System.Drawing.Size(74, 20);
             this.numUpNumPer.TabIndex = 2;
+            this.toolPMesas.SetToolTip(this.numUpNumPer, "Selecciona un Numero de Personas");
             this.numUpNumPer.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
+            // txtNumMesa
+            // 
+            this.txtNumMesa.Location = new System.Drawing.Point(188, 99);
+            this.txtNumMesa.Name = "txtNumMesa";
+            this.txtNumMesa.ReadOnly = true;
+            this.txtNumMesa.Size = new System.Drawing.Size(100, 20);
+            this.txtNumMesa.TabIndex = 6;
+            // 
             // frmAltaMesas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gold;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(366, 340);
-            this.ControlBox = false;
+            this.Controls.Add(this.txtNumMesa);
             this.Controls.Add(this.numUpNumPer);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.cmbDescripcion);
             this.Controls.Add(this.lblNumPersonas);
-            this.Controls.Add(this.NumUpMesa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitulo);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAltaMesas";
             this.Text = "Alta De Mesas";
-            ((System.ComponentModel.ISupportInitialize)(this.NumUpMesa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorPMesas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpNumPer)).EndInit();
             this.ResumeLayout(false);
@@ -203,14 +176,13 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown NumUpMesa;
         private System.Windows.Forms.Label lblNumPersonas;
         private System.Windows.Forms.ComboBox cmbDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolTip toolPMesas;
         private System.Windows.Forms.ErrorProvider ErrorPMesas;
         private System.Windows.Forms.NumericUpDown numUpNumPer;
+        private System.Windows.Forms.TextBox txtNumMesa;
     }
 }

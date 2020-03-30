@@ -12,10 +12,12 @@ namespace WindowsFormsProyectoRestaurante
         private string descripcion;
         private bool estatus;
         private string nombreCliente;
+        private static int numM=1;
 
-        public Mesa(int numMesa, string desc, int numPersonas)
+        public Mesa(string desc, int numPersonas)
         {
-            this.numMesa = numMesa;
+            numMesa = numM;
+            numM++;
             descripcion = desc;
             this.numPersonas = numPersonas;
             estatus = true;
@@ -70,6 +72,10 @@ namespace WindowsFormsProyectoRestaurante
             {
                 nombreCliente = value;
             }
+        }
+        public static int RetornaNumMesa()
+        {
+           return numM;
         }
     }
 }
