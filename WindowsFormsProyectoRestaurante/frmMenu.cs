@@ -90,5 +90,10 @@ namespace WindowsFormsProyectoRestaurante
             frmCierreDia cierre = new frmCierreDia();
             cierre.ShowDialog();
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
