@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvConsultaPlatillos = new System.Windows.Forms.DataGridView();
             this.ClavePlatillo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaPlatillos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvConsultaPlatillos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvConsultaPlatillos.AllowUserToAddRows = false;
+            this.dgvConsultaPlatillos.AllowUserToDeleteRows = false;
+            this.dgvConsultaPlatillos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsultaPlatillos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClavePlatillo,
             this.Descripcion,
             this.Importe,
             this.Tiempo});
-            this.dataGridView1.Location = new System.Drawing.Point(-2, -1);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(543, 336);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvConsultaPlatillos.Location = new System.Drawing.Point(-2, -1);
+            this.dgvConsultaPlatillos.Name = "dgvConsultaPlatillos";
+            this.dgvConsultaPlatillos.ReadOnly = true;
+            this.dgvConsultaPlatillos.Size = new System.Drawing.Size(543, 336);
+            this.dgvConsultaPlatillos.TabIndex = 0;
             // 
             // ClavePlatillo
             // 
@@ -82,17 +82,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 333);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvConsultaPlatillos);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmConsultaPlatillos";
-            this.Text = "frmConsultaPlatillos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Consulta de Platillos";
+            this.Load += new System.EventHandler(this.frmConsultaPlatillos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaPlatillos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvConsultaPlatillos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClavePlatillo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;

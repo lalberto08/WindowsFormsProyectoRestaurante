@@ -29,5 +29,14 @@ namespace WindowsFormsProyectoRestaurante
         {
 
         }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            string desc = txtDescripcion.Text;
+            double importe = Convert.ToDouble(txtImportePlatillo.Text);
+            int tiempo =Convert.ToInt32(numUpTiempo.Value);
+            LPlatillos.AgregaPlatillo(desc, importe, tiempo);
+            MessageBox.Show("Platillo agregado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

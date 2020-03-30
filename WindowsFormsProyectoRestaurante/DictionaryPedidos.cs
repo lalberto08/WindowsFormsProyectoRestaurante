@@ -16,10 +16,10 @@ namespace WindowsFormsProyectoRestaurante
             DicPedidos = new Dictionary<int, Pedido>();
             lp = lPlaPe;
         }
-        public void AgregaPedido(int numPed, int numM, int numbe, int numpla)
+        public void AgregaPedido(int numPe, int numM, int numbe, int numpla)
         {
             Pedido p = new Pedido(numM, numbe, numpla);
-            DicPedidos.Add(numPed, p);
+            DicPedidos.Add(numPe, p);
         }
         public string[] ReportePedidos()
         {

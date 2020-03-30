@@ -54,6 +54,12 @@
     <Compile Include="frmAgregaPlatillo.Designer.cs">
       <DependentUpon>frmAgregaPlatillo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAgregaPlatilloV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregaPlatilloV2.Designer.cs">
+      <DependentUpon>frmAgregaPlatilloV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAsignaMesa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAgregaPlatillo.resx">
       <DependentUpon>frmAgregaPlatillo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregaPlatilloV2.resx">
+      <DependentUpon>frmAgregaPlatilloV2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAsignaMesa.resx">
       <DependentUpon>frmAsignaMesa.cs</DependentUpon>

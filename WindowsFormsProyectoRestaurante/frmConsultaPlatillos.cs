@@ -18,5 +18,17 @@ namespace WindowsFormsProyectoRestaurante
             InitializeComponent();
             listPlatillos = lPlatillos;
         }
+
+        private void frmConsultaPlatillos_Load(object sender, EventArgs e)
+        {
+            string[] clave = listPlatillos.arregloClave();
+            string[] desc = listPlatillos.arregloDescripcion();
+            string[] importe = listPlatillos.arregloImporte();
+            string[] tiempo = listPlatillos.arregloTiempo();
+            for (int i = 0; i < clave.Length; i++)
+            {
+                dgvConsultaPlatillos.Rows.Add(clave[i], desc[i], importe[i], tiempo[i]);
+            }
+        }
     }
 }

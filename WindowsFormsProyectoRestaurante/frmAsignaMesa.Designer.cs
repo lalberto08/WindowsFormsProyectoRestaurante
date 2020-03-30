@@ -33,17 +33,17 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.btnAsignar = new System.Windows.Forms.Button();
-            this.dgvMesas = new System.Windows.Forms.DataGridView();
             this.errorpAsignaMesa = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.NumMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbNumMesa = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).BeginInit();
+            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMesas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.errorpAsignaMesa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumMesa
@@ -88,6 +88,53 @@
             this.btnAsignar.UseVisualStyleBackColor = true;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
+            // errorpAsignaMesa
+            // 
+            this.errorpAsignaMesa.ContainerControl = this;
+            // 
+            // cmbNumMesa
+            // 
+            this.cmbNumMesa.FormattingEnabled = true;
+            this.cmbNumMesa.Location = new System.Drawing.Point(174, 37);
+            this.cmbNumMesa.Name = "cmbNumMesa";
+            this.cmbNumMesa.Size = new System.Drawing.Size(79, 21);
+            this.cmbNumMesa.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.cmbNumMesa, "Selecciona Numero de Mesa");
+            this.cmbNumMesa.SelectedIndexChanged += new System.EventHandler(this.cmbNumMesa_SelectedIndexChanged);
+            // 
+            // Estatus
+            // 
+            this.Estatus.HeaderText = "Estatus";
+            this.Estatus.Name = "Estatus";
+            this.Estatus.ReadOnly = true;
+            // 
+            // NumPersonas
+            // 
+            this.NumPersonas.HeaderText = "Numero de Personas";
+            this.NumPersonas.Name = "NumPersonas";
+            this.NumPersonas.ReadOnly = true;
+            this.NumPersonas.Width = 80;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // NombreCliente
+            // 
+            this.NombreCliente.HeaderText = "Nombre del Cliente";
+            this.NombreCliente.Name = "NombreCliente";
+            this.NombreCliente.ReadOnly = true;
+            this.NombreCliente.Width = 200;
+            // 
+            // NumMesa
+            // 
+            this.NumMesa.HeaderText = "Numero de Mesa";
+            this.NumMesa.Name = "NumMesa";
+            this.NumMesa.ReadOnly = true;
+            this.NumMesa.Width = 80;
+            // 
             // dgvMesas
             // 
             this.dgvMesas.AllowUserToAddRows = false;
@@ -108,53 +155,6 @@
             this.dgvMesas.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dgvMesas, "Informacion de la Mesa");
             // 
-            // errorpAsignaMesa
-            // 
-            this.errorpAsignaMesa.ContainerControl = this;
-            // 
-            // NumMesa
-            // 
-            this.NumMesa.HeaderText = "Numero de Mesa";
-            this.NumMesa.Name = "NumMesa";
-            this.NumMesa.ReadOnly = true;
-            this.NumMesa.Width = 80;
-            // 
-            // NombreCliente
-            // 
-            this.NombreCliente.HeaderText = "Nombre del Cliente";
-            this.NombreCliente.Name = "NombreCliente";
-            this.NombreCliente.ReadOnly = true;
-            this.NombreCliente.Width = 200;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // NumPersonas
-            // 
-            this.NumPersonas.HeaderText = "Numero de Personas";
-            this.NumPersonas.Name = "NumPersonas";
-            this.NumPersonas.ReadOnly = true;
-            this.NumPersonas.Width = 80;
-            // 
-            // Estatus
-            // 
-            this.Estatus.HeaderText = "Estatus";
-            this.Estatus.Name = "Estatus";
-            this.Estatus.ReadOnly = true;
-            // 
-            // cmbNumMesa
-            // 
-            this.cmbNumMesa.FormattingEnabled = true;
-            this.cmbNumMesa.Location = new System.Drawing.Point(174, 37);
-            this.cmbNumMesa.Name = "cmbNumMesa";
-            this.cmbNumMesa.Size = new System.Drawing.Size(79, 21);
-            this.cmbNumMesa.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.cmbNumMesa, "Selecciona Numero de Mesa");
-            this.cmbNumMesa.SelectedIndexChanged += new System.EventHandler(this.cmbNumMesa_SelectedIndexChanged);
-            // 
             // frmAsignaMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,8 +172,8 @@
             this.Name = "frmAsignaMesa";
             this.Text = "frmAsignaMesa";
             this.Load += new System.EventHandler(this.frmAsignaMesa_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorpAsignaMesa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,14 +184,14 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.Button btnAsignar;
-        private System.Windows.Forms.DataGridView dgvMesas;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorpAsignaMesa;
+        private System.Windows.Forms.ComboBox cmbNumMesa;
+        private System.Windows.Forms.DataGridView dgvMesas;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumMesa;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumPersonas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estatus;
-        private System.Windows.Forms.ComboBox cmbNumMesa;
     }
 }

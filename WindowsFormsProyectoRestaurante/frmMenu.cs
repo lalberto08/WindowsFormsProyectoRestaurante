@@ -57,7 +57,7 @@ namespace WindowsFormsProyectoRestaurante
 
         private void registrarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            frmPedidos registraPedidos = new frmPedidos(dPedidos, lPlaPe);
+            frmPedidos registraPedidos = new frmPedidos(dPedidos, lPlaPe,admMesas);
             registraPedidos.ShowDialog();
         }
 

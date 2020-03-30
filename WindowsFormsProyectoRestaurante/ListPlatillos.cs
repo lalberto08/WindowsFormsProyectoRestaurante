@@ -30,6 +30,52 @@ namespace WindowsFormsProyectoRestaurante
             }
             return cadena;
         }
+        //nuevo
+        public string[] arregloClave()
+        {
+            string[] cadena = new string[ListPlatillo.Count];
+            int pos = 0;
+            foreach (Platillo item in ListPlatillo)
+            {
+                cadena[pos] = item.pClave.ToString();
+                pos++;
+            }
+            return cadena;
+        }
+        public string[] arregloDescripcion()
+        {
+            string[] cadena = new string[ListPlatillo.Count];
+            int pos = 0;
+            foreach (Platillo item in ListPlatillo)
+            {
+                cadena[pos] = item.pDesc;
+                pos++;
+            }
+            return cadena;
+        }
+        public string[] arregloImporte()
+        {
+            string[] cadena = new string[ListPlatillo.Count];
+            int pos = 0;
+            foreach (Platillo item in ListPlatillo)
+            {
+                cadena[pos] = item.pImporte.ToString();
+                pos++;
+            }
+            return cadena;
+        }
+        public string[] arregloTiempo()
+        {
+            string[] cadena = new string[ListPlatillo.Count];
+            int pos = 0;
+            foreach (Platillo item in ListPlatillo)
+            {
+                cadena[pos] = item.pTiempo.ToString();
+                pos++;
+            }
+            return cadena;
+        }
+        //
         public bool ListVacio()
         {
             bool vacio = false;

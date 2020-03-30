@@ -85,7 +85,7 @@
             // 
             this.txtImportePlatillo.Location = new System.Drawing.Point(209, 168);
             this.txtImportePlatillo.Name = "txtImportePlatillo";
-            this.txtImportePlatillo.Size = new System.Drawing.Size(92, 20);
+            this.txtImportePlatillo.Size = new System.Drawing.Size(78, 20);
             this.txtImportePlatillo.TabIndex = 1;
             this.toolTPlatillos.SetToolTip(this.txtImportePlatillo, "Costo Del Platillo");
             // 
@@ -99,6 +99,7 @@
             this.btnRegistrar.Text = "Registrar";
             this.toolTPlatillos.SetToolTip(this.btnRegistrar, "Click Para Registrar");
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnSalir
             // 
@@ -183,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumPurple;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(351, 334);
             this.ControlBox = false;
             this.Controls.Add(this.txtDescripcion);
@@ -200,7 +201,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPlatillos";
-            this.Text = "Alta De Pedidos";
+            this.Text = "Alta De Platillos";
             ((System.ComponentModel.ISupportInitialize)(this.ErrorPPlatillos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpTiempo)).EndInit();
             this.ResumeLayout(false);
