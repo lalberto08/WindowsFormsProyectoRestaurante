@@ -34,6 +34,73 @@ namespace WindowsFormsProyectoRestaurante
             aMesas[posMesa].pNombreCliente = nombreCliente;
             aMesas[posMesa].pEstatus = false;
         }
+        //nuevo
+        public string RegresaDescripcion(int numM)
+        {
+            string desc="";
+            for (int i = 0; i < contMesas; i++)
+            {
+                if (aMesas[i].pNumMesa.Equals(numM))
+                {
+                    desc=aMesas[i].pDescripcion;
+                }
+            }
+            return desc;
+        }
+        public int RegresaNumPersonas(int numM)
+        {
+            int num = 0;
+            for (int i = 0; i < contMesas; i++)
+            {
+                if (aMesas[i].pNumMesa.Equals(numM))
+                {
+                    num = aMesas[i].pNumPersonas;
+                }
+            }
+            return num;
+        }
+        public string RegresaEstatus(int numM)
+        {
+            string estatus = "DESOCUPADA";
+            for (int i = 0; i < contMesas; i++)
+            {
+                if (aMesas[i].pNumMesa.Equals(numM))
+                {
+                    bool estado = aMesas[i].pEstatus;
+                    if (estado==false) 
+                    {
+                        estatus = "OCUPADA";
+                    }
+                }
+            }
+            return estatus;
+        }
+        public string RegresaNombreCliente(int numM)
+        {
+            string nombre = "NO ASIGNADA";
+            for (int i = 0; i < contMesas; i++)
+            {
+                if (aMesas[i].pNumMesa.Equals(numM))
+                {
+                    string nom = aMesas[i].pNombreCliente;
+                    if (nom!=null)
+                    {
+                        nombre = nom;
+                    }
+                }
+            }
+            return nombre;
+        }
+        public string[] NumeroDeMesas()
+        {
+            string[] arreglo = new string[contMesas];
+            for (int i = 0; i < contMesas; i++)
+            {
+                arreglo[i] = aMesas[i].pNumMesa.ToString();
+            }
+            return arreglo;
+        }
+        //
         public void LiberarMesa(int posMesa)
         {
             aMesas[posMesa].pNombreCliente = null;
