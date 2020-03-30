@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsProyectoRestaurante
 {
+    //Ejemplo de edicion
     public class AdministraMesa
     {
         private Mesa[] aMesas;
