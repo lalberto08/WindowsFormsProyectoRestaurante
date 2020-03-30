@@ -106,8 +106,9 @@
             // individualToolStripMenuItem
             // 
             this.individualToolStripMenuItem.Name = "individualToolStripMenuItem";
-            this.individualToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.individualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.individualToolStripMenuItem.Text = "Individual";
+            this.individualToolStripMenuItem.Click += new System.EventHandler(this.individualToolStripMenuItem_Click);
             // 
             // todasToolStripMenuItem
             // 

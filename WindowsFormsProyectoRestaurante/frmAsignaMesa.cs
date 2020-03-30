@@ -48,7 +48,6 @@ namespace WindowsFormsProyectoRestaurante
 
                 MessageBox.Show("Mesa Asignada a "+nombreC,"Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
-                cmbNumMesa.SelectedIndex = -1;
                 txtNombreCliente.Text = "";
             }
         }

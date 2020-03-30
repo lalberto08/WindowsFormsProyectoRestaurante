@@ -28,35 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvConsultaMesas = new System.Windows.Forms.DataGridView();
             this.NumMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaMesas)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvConsultaMesas
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvConsultaMesas.AllowUserToAddRows = false;
+            this.dgvConsultaMesas.AllowUserToDeleteRows = false;
+            this.dgvConsultaMesas.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvConsultaMesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsultaMesas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumMesa,
             this.NombreCliente,
             this.Descripcion,
+            this.NumPersonas,
             this.Estatus});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(546, 265);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvConsultaMesas.Location = new System.Drawing.Point(3, 0);
+            this.dgvConsultaMesas.Name = "dgvConsultaMesas";
+            this.dgvConsultaMesas.ReadOnly = true;
+            this.dgvConsultaMesas.Size = new System.Drawing.Size(611, 301);
+            this.dgvConsultaMesas.TabIndex = 0;
             // 
             // NumMesa
             // 
             this.NumMesa.HeaderText = "Numero De Mesa";
             this.NumMesa.Name = "NumMesa";
             this.NumMesa.ReadOnly = true;
+            this.NumMesa.Width = 80;
             // 
             // NombreCliente
             // 
@@ -71,6 +75,13 @@
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
             // 
+            // NumPersonas
+            // 
+            this.NumPersonas.HeaderText = "Numero de Personas";
+            this.NumPersonas.Name = "NumPersonas";
+            this.NumPersonas.ReadOnly = true;
+            this.NumPersonas.Width = 80;
+            // 
             // Estatus
             // 
             this.Estatus.HeaderText = "Estatus";
@@ -81,24 +92,25 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 263);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(607, 301);
+            this.Controls.Add(this.dgvConsultaMesas);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConsultaMesas";
             this.Text = "Consulta De Mesas";
             this.Load += new System.EventHandler(this.frmConsultaMesas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsultaMesas)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvConsultaMesas;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumMesa;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumPersonas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estatus;
     }
 }

@@ -95,5 +95,11 @@ namespace WindowsFormsProyectoRestaurante
         {
 
         }
+
+        private void individualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaMesaIndividual consulta = new frmConsultaMesaIndividual(admMesas);
+            consulta.ShowDialog();
+        }
     }
 }

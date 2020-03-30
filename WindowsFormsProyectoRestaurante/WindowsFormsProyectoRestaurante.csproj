@@ -66,6 +66,12 @@
     <Compile Include="frmCierreDia.Designer.cs">
       <DependentUpon>frmCierreDia.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaMesaIndividual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaMesaIndividual.Designer.cs">
+      <DependentUpon>frmConsultaMesaIndividual.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaPlatillos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCierreDia.resx">
       <DependentUpon>frmCierreDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaMesaIndividual.resx">
+      <DependentUpon>frmConsultaMesaIndividual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaPlatillos.resx">
       <DependentUpon>frmConsultaPlatillos.cs</DependentUpon>

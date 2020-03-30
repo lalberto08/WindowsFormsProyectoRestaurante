@@ -100,6 +100,57 @@ namespace WindowsFormsProyectoRestaurante
             }
             return arreglo;
         }
+        public string[] arregloDescripcion()
+        {
+            string[] arreglo = new string[contMesas];
+            for (int i = 0; i < contMesas; i++)
+            {
+                arreglo[i] = aMesas[i].pDescripcion;
+            }
+            return arreglo;
+        }
+        public string[] arregloNumPersonas()
+        {
+            string[] arreglo = new string[contMesas];
+            for (int i = 0; i < contMesas; i++)
+            {
+                arreglo[i] = aMesas[i].pNumPersonas.ToString();
+            }
+            return arreglo;
+        }
+        public string[] arregloEstatus()
+        {
+            string estatus;
+            bool estado;
+            string[] arreglo = new string[contMesas];
+            for (int i = 0; i < contMesas; i++)
+            {
+                estatus = "DESOCUPADA";
+                estado = aMesas[i].pEstatus;
+                if (estado == false)
+                {
+                    estatus = "OCUPADA";
+                }
+                arreglo[i] = estatus;
+            }
+            return arreglo;
+        }
+        public string[] arregloNombreCliente()
+        {
+            string nombre;
+            string[] arreglo = new string[contMesas];
+            for (int i = 0; i < contMesas; i++)
+            {
+                nombre = "NO ASIGNADA";
+                string nom = aMesas[i].pNombreCliente;
+                if (nom != null)
+                {
+                    nombre = nom;
+                }
+                arreglo[i] = nombre;
+            }
+            return arreglo;
+        }
         //
         public void LiberarMesa(int posMesa)
         {

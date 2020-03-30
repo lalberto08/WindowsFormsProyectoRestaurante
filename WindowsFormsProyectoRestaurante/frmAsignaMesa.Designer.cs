@@ -167,6 +167,8 @@
             this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblNumMesa);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAsignaMesa";
             this.Text = "frmAsignaMesa";
             this.Load += new System.EventHandler(this.frmAsignaMesa_Load);
