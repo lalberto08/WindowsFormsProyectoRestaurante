@@ -24,34 +24,57 @@ namespace WindowsFormsProyectoRestaurante
         }
         public void AgregarPlatillo(int numP, int claveP, int cant)
         {
-            for (int i = 0; i < lPlatillosPedidos.Count; i++)
+            if (lPlatillosPedidos.Count != 0)
             {
-                if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
+                for (int i = 0; i < lPlatillosPedidos.Count; i++)
                 {
-                    lPlatillosPedidos.ElementAt(i).pCantidad += cant;
-                    break;
+                    if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
+                    {
+                        lPlatillosPedidos.ElementAt(i).pCantidad += cant;
+                        break;
+                    }
+                    if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & !lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
+                    {
+                        Agrega(numP, claveP, cant);
+                        break;
+                    }
                 }
-                if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & !lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
-                {
-                    Agrega(numP, claveP, cant);
-                    break;
-                }
+            }
+            else
+            {
+                Agrega(numP, claveP, cant);
             }
         }
         public void QuitarPlatillo(int numP, int claveP)
         {
+            if (lPlatillosPedidos.Count != 0)
+            {
+                for (int i = 0; i < lPlatillosPedidos.Count; i++)
+                {
+                    if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
+                        if (lPlatillosPedidos.ElementAt(i).pCantidad == 1)
+                        {
+                            lPlatillosPedidos.RemoveAt(i);
+                        }
+                        else
+                        {
+                            lPlatillosPedidos.ElementAt(i).pCantidad -= 1;
+                        }
+                }
+            }
+        }
+        public int CalcularNumPlatillos(int numPe)
+        {
+            int clave = 0;
+            int cont = 0;
             for (int i = 0; i < lPlatillosPedidos.Count; i++)
             {
-                if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
-                    if (lPlatillosPedidos.ElementAt(i).pCantidad == 1)
-                    {
-                        lPlatillosPedidos.RemoveAt(i);
-                    }
-                    else
-                    {
-                        lPlatillosPedidos.ElementAt(i).pCantidad -= 1;
-                    }
+                if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numPe))
+                {
+                      cont+=lPlatillosPedidos.ElementAt(i).pCantidad;
+                }
             }
+            return cont;
         }
         public double Importe(int numP)
         {
@@ -87,5 +110,27 @@ namespace WindowsFormsProyectoRestaurante
                 }
             }
         }
+        /*
+        public string[] ImprimePlatilloClave(int numP)
+        {
+            int cant = this.CalcularNumPlatillos(numP);
+            string[] arreglo = new string[cant];
+            string[] clave = lPlatillos.arregloClave();
+            int pos = 0;
+            for (int i = 0; i < lPlatillosPedidos.Count; i++)
+            {
+                for (int j = 0; j < lPlatillos.Tamaño(); j++)
+                {
+                    if (lPlatillosPedidos.ElementAt(i).pClaveP.Equals(clave[j]))
+                    {
+                        double importe = lPlatillos.RegresaImporte(clave[j]);
+                        string cadena = clave[j];
+                        arreglo []
+                    }
+                }
+                
+            }
+        }
+        */
     }
 }

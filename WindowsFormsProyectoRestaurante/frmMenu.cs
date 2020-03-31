@@ -57,7 +57,7 @@ namespace WindowsFormsProyectoRestaurante
 
         private void registrarToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            frmPedidos registraPedidos = new frmPedidos(dPedidos, lPlaPe,admMesas);
+            frmPedidos registraPedidos = new frmPedidos(LPlatillos, dPedidos, lPlaPe,admMesas);
             registraPedidos.ShowDialog();
         }
 
@@ -100,6 +100,17 @@ namespace WindowsFormsProyectoRestaurante
         {
             frmConsultaMesaIndividual consulta = new frmConsultaMesaIndividual(admMesas);
             consulta.ShowDialog();
+        }
+
+        private void agregaPlatilloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregaPlatilloV2 agrega = new frmAgregaPlatilloV2(LPlatillos, dPedidos, lPlaPe, admMesas);
+            agrega.ShowDialog();
+        }
+
+        private void individualToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

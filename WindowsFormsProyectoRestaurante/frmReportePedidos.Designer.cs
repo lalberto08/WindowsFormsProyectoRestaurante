@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPedidos = new System.Windows.Forms.DataGridView();
             this.NumPe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumBebidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumPlatillos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvPedidos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPedidos.AllowUserToAddRows = false;
+            this.dgvPedidos.AllowUserToDeleteRows = false;
+            this.dgvPedidos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumPe,
             this.NumMesa,
             this.NumBebidas,
             this.NumPlatillos});
-            this.dataGridView1.Location = new System.Drawing.Point(-1, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(443, 247);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvPedidos.Location = new System.Drawing.Point(-1, 0);
+            this.dgvPedidos.Name = "dgvPedidos";
+            this.dgvPedidos.ReadOnly = true;
+            this.dgvPedidos.Size = new System.Drawing.Size(443, 247);
+            this.dgvPedidos.TabIndex = 0;
             // 
             // NumPe
             // 
@@ -82,17 +82,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 245);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPedidos);
             this.Name = "frmReportePedidos";
             this.Text = "frmReportePedidos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmReportePedidos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPedidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumPe;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumMesa;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumBebidas;

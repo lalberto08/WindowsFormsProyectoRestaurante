@@ -18,5 +18,17 @@ namespace WindowsFormsProyectoRestaurante
             InitializeComponent();
             dPedidos = dP;
         }
+
+        private void frmReportePedidos_Load(object sender, EventArgs e)
+        {
+            string[] numPe = dPedidos.arregloNumPedidos();
+            string[] numMesa = dPedidos.arregloNumMesa();
+            string[] numBebidas = dPedidos.arregloNumBebidas();
+            string[] numPla = dPedidos.arregloNumPlatillos();
+            for (int i = 0; i < numPe.Length; i++)
+            {
+                dgvPedidos.Rows.Add(numPe[i], numMesa[i], numBebidas[i], numPla[i]);
+            }
+        }
     }
 }

@@ -36,6 +36,61 @@ namespace WindowsFormsProyectoRestaurante
             }
             return cadena;
         }
+        public string[] arregloNumPedidos()
+        {
+            int pos = 0;
+            string[] cadena = new string[DicPedidos.Count];
+            foreach (KeyValuePair<int, Pedido> item in DicPedidos)
+            {
+                int numP = item.Key;
+                string arr = numP.ToString();
+                cadena[pos] = arr;
+                pos++;
+            }
+            return cadena;
+        }
+        public string[] arregloNumMesa()
+        {
+            int pos = 0;
+            string[] cadena = new string[DicPedidos.Count];
+            foreach (KeyValuePair<int, Pedido> item in DicPedidos)
+            {
+                int numP = item.Key;
+                Pedido p = item.Value;
+                string arr = p.pNumMesa.ToString();
+                cadena[pos] = arr;
+                pos++;
+            }
+            return cadena;
+        }
+        public string[] arregloNumBebidas()
+        {
+            int pos = 0;
+            string[] cadena = new string[DicPedidos.Count];
+            foreach (KeyValuePair<int, Pedido> item in DicPedidos)
+            {
+                int numP = item.Key;
+                Pedido p = item.Value;
+                string arr = p.pnumBebidas.ToString();
+                cadena[pos] = arr;
+                pos++;
+            }
+            return cadena;
+        }
+        public string[] arregloNumPlatillos()
+        {
+            int pos = 0;
+            string[] cadena = new string[DicPedidos.Count];
+            foreach (KeyValuePair<int, Pedido> item in DicPedidos)
+            {
+                int numP = item.Key;
+                Pedido p = item.Value;
+                string arr = p.pNumPlatillos.ToString();
+                cadena[pos] = arr;
+                pos++;
+            }
+            return cadena;
+        }
         public bool BuscaPedido(int num)
         {
             bool existe = false;

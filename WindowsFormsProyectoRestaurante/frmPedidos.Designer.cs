@@ -55,7 +55,7 @@
             // 
             // txtNumPe
             // 
-            this.txtNumPe.Location = new System.Drawing.Point(407, 116);
+            this.txtNumPe.Location = new System.Drawing.Point(394, 116);
             this.txtNumPe.Name = "txtNumPe";
             this.txtNumPe.Size = new System.Drawing.Size(135, 20);
             this.txtNumPe.TabIndex = 0;
@@ -66,7 +66,7 @@
             // 
             this.lblNumPe.AutoSize = true;
             this.lblNumPe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumPe.Location = new System.Drawing.Point(404, 97);
+            this.lblNumPe.Location = new System.Drawing.Point(391, 97);
             this.lblNumPe.Name = "lblNumPe";
             this.lblNumPe.Size = new System.Drawing.Size(138, 16);
             this.lblNumPe.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             this.lblNumMesa.AutoSize = true;
             this.lblNumMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumMesa.Location = new System.Drawing.Point(72, 95);
+            this.lblNumMesa.Location = new System.Drawing.Point(59, 95);
             this.lblNumMesa.Name = "lblNumMesa";
             this.lblNumMesa.Size = new System.Drawing.Size(126, 16);
             this.lblNumMesa.TabIndex = 2;
@@ -85,7 +85,7 @@
             // cmbNumMesa
             // 
             this.cmbNumMesa.FormattingEnabled = true;
-            this.cmbNumMesa.Location = new System.Drawing.Point(75, 116);
+            this.cmbNumMesa.Location = new System.Drawing.Point(62, 116);
             this.cmbNumMesa.Name = "cmbNumMesa";
             this.cmbNumMesa.Size = new System.Drawing.Size(121, 21);
             this.cmbNumMesa.TabIndex = 0;
@@ -129,7 +129,6 @@
             // 
             // btmGuardar
             // 
-            this.btmGuardar.Enabled = false;
             this.btmGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btmGuardar.Location = new System.Drawing.Point(226, 375);
             this.btmGuardar.Name = "btmGuardar";
@@ -207,7 +206,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(228, 95);
+            this.lblNombre.Location = new System.Drawing.Point(215, 95);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(152, 18);
             this.lblNombre.TabIndex = 10;
@@ -215,7 +214,7 @@
             // 
             // txtNombrecliente
             // 
-            this.txtNombrecliente.Location = new System.Drawing.Point(231, 116);
+            this.txtNombrecliente.Location = new System.Drawing.Point(218, 116);
             this.txtNombrecliente.Name = "txtNombrecliente";
             this.txtNombrecliente.ReadOnly = true;
             this.txtNombrecliente.Size = new System.Drawing.Size(153, 20);

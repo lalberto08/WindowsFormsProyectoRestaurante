@@ -30,6 +30,10 @@ namespace WindowsFormsProyectoRestaurante
             }
             return cadena;
         }
+        public int Tamaño()
+        {
+            return ListPlatillo.Count;
+        }
         //nuevo
         public bool ValidarPlatilloDesc(string desc)
         {
@@ -87,6 +91,31 @@ namespace WindowsFormsProyectoRestaurante
                 pos++;
             }
             return cadena;
+        }
+
+        public double RegresaImporte (int clavePla)
+        {
+            double importe=0;
+            foreach (Platillo item in ListPlatillo)
+            {
+                if (item.pClave.Equals(clavePla))
+                {
+                    importe = item.pImporte;
+                }
+            }
+            return importe;
+        }
+        public int RegresaTiempo(int clavePla)
+        {
+            int tiempo = 0;
+            foreach (Platillo item in ListPlatillo)
+            {
+                if (item.pClave.Equals(clavePla))
+                {
+                    tiempo = item.pTiempo;
+                }
+            }
+            return tiempo;
         }
         //
         public bool ListVacio()

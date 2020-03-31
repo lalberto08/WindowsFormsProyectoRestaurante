@@ -12,12 +12,14 @@ namespace WindowsFormsProyectoRestaurante
 {
     public partial class frmPedidos : Form
     {
+        ListPlatillos listPlatillos;
         DictionaryPedidos dPedidos;
         ListPlatillosPedidos lPLaPedidos;
         AdministraMesa admMesa;
-        public frmPedidos(DictionaryPedidos dP, ListPlatillosPedidos lPlaPe,AdministraMesa aM)
+        public frmPedidos(ListPlatillos lPlatillos, DictionaryPedidos dP, ListPlatillosPedidos lPlaPe,AdministraMesa aM)
         {
             InitializeComponent();
+            listPlatillos = lPlatillos;
             dPedidos = dP;
             lPLaPedidos = lPlaPe;
             admMesa = aM;
@@ -25,8 +27,12 @@ namespace WindowsFormsProyectoRestaurante
 
         private void btnAgregaPlatillo_Click(object sender, EventArgs e)
         {
-            frmAgregaPlatilloV2 agrega = new frmAgregaPlatilloV2(dPedidos, lPLaPedidos);
+            int numPe = Convert.ToInt32(txtNumPe.Text);
+            int numM = Convert.ToInt32(cmbNumMesa.SelectedItem);
+            frmAgregaPlatilloV2 agrega = new frmAgregaPlatilloV2(listPlatillos, dPedidos, lPLaPedidos,admMesa,numPe, numM,2);
             agrega.ShowDialog();
+            txtNumPe.Enabled = false;
+            cmbNumMesa.Enabled = false;
         }
 
         private void btmGuardar_Click(object sender, EventArgs e)
@@ -34,6 +40,9 @@ namespace WindowsFormsProyectoRestaurante
             int numPe = Convert.ToInt32(txtNumPe.Text);
             int numM =Convert.ToInt32(cmbNumMesa.SelectedItem);
             int numBe = Convert.ToInt32(numUpBebidas.Value);
+            int numPla = lPLaPedidos.CalcularNumPlatillos(numPe);
+            dPedidos.AgregaPedido(numPe,numM,numBe,numPla);
+            MessageBox.Show("Pedido Agregado Correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void cmbNumMesa_SelectedIndexChanged(object sender, EventArgs e)
