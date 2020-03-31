@@ -17,7 +17,8 @@ namespace WindowsFormsProyectoRestaurante
             descripcion = desc;
             importe = imp;
             tiempo = tiemp;
-            clavePla = cont += 5;
+            clavePla = cont;
+            cont += 5;
         }
 
         public int pClave

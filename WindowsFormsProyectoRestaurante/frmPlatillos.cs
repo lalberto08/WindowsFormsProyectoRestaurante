@@ -12,11 +12,11 @@ namespace WindowsFormsProyectoRestaurante
 {
     public partial class frmPlatillos : Form
     {
-        ListPlatillos LPlatillos;
+        ListPlatillos listPlatillos;
         public frmPlatillos(ListPlatillos Lpla)
         {
             InitializeComponent();
-            LPlatillos = Lpla;
+            listPlatillos = Lpla;
             txtClavePlatillo.Text = Platillo.ObtieneClave().ToString();
         }
 
@@ -42,12 +42,20 @@ namespace WindowsFormsProyectoRestaurante
                         string desc = txtDescripcion.Text;
                         double importe = Convert.ToDouble(txtImportePlatillo.Text);
                         int tiempo = Convert.ToInt32(numUpTiempo.Value);
-                        LPlatillos.AgregaPlatillo(desc, importe, tiempo);
+                        listPlatillos.AgregaPlatillo(desc, importe, tiempo);
                         MessageBox.Show("Platillo Agregado Correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //Limpiar ErrorProvider
                         ErrorPPlatillos.SetError(txtDescripcion, "");
                         ErrorPPlatillos.SetError(txtImportePlatillo, "");
-                        DataGPlatillos.Rows.Add(ClavePlatillo, desc, importe, tiempo);
+                        DataGPlatillos.Rows.Clear();
+                        string[] Aclave = listPlatillos.arregloClave();
+                        string[] Adesc = listPlatillos.arregloDescripcion();
+                        string[] Aimporte = listPlatillos.arregloImporte();
+                        string[] Atiempo = listPlatillos.arregloTiempo();
+                        for (int i = 0; i < Aclave.Length; i++)
+                        {
+                            DataGPlatillos.Rows.Add(Aclave[i], Adesc[i], Aimporte[i], Atiempo[i]);
+                        }
                         //Limpiar Al Registrar
                         txtDescripcion.Text = "";
                         txtImportePlatillo.Text = "0";
@@ -76,7 +84,7 @@ namespace WindowsFormsProyectoRestaurante
         {
             bool duplicado = true;
             string desc = txtDescripcion.Text;
-            if (LPlatillos.ValidarPlatilloDesc(desc) != false)
+            if (listPlatillos.ValidarPlatilloDesc(desc) != false)
             {
                 ErrorPPlatillos.SetError(txtDescripcion, "Nombre De Platillo Repetido");
                 txtDescripcion.Focus();
@@ -125,6 +133,18 @@ namespace WindowsFormsProyectoRestaurante
             if (ValidarImporte() == false)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void frmPlatillos_Load(object sender, EventArgs e)
+        {
+            string[] Aclave = listPlatillos.arregloClave();
+            string[] Adesc = listPlatillos.arregloDescripcion();
+            string[] Aimporte = listPlatillos.arregloImporte();
+            string[] Atiempo = listPlatillos.arregloTiempo();
+            for (int i = 0; i < Aclave.Length; i++)
+            {
+                DataGPlatillos.Rows.Add(Aclave[i], Adesc[i], Aimporte[i], Atiempo[i]);
             }
         }
     }

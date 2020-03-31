@@ -261,6 +261,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPlatillos";
             this.Text = "Alta De Platillos";
+            this.Load += new System.EventHandler(this.frmPlatillos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorPPlatillos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpTiempo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGPlatillos)).EndInit();
