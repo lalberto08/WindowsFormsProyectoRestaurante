@@ -30,13 +30,13 @@
         {
             this.cmbNumMesa = new System.Windows.Forms.ComboBox();
             this.dgvMesas = new System.Windows.Forms.DataGridView();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblNumMesa = new System.Windows.Forms.Label();
             this.NumMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblNumMesa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             // 
             this.dgvMesas.AllowUserToAddRows = false;
             this.dgvMesas.AllowUserToDeleteRows = false;
-            this.dgvMesas.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dgvMesas.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvMesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMesas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumMesa,
@@ -67,26 +67,6 @@
             this.dgvMesas.ReadOnly = true;
             this.dgvMesas.Size = new System.Drawing.Size(604, 116);
             this.dgvMesas.TabIndex = 8;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(288, 47);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(141, 16);
-            this.lblNombre.TabIndex = 7;
-            this.lblNombre.Text = "Nombre del Cliente";
-            // 
-            // lblNumMesa
-            // 
-            this.lblNumMesa.AutoSize = true;
-            this.lblNumMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumMesa.Location = new System.Drawing.Point(34, 47);
-            this.lblNumMesa.Name = "lblNumMesa";
-            this.lblNumMesa.Size = new System.Drawing.Size(112, 16);
-            this.lblNumMesa.TabIndex = 6;
-            this.lblNumMesa.Text = "Numero de Mesa";
             // 
             // NumMesa
             // 
@@ -120,6 +100,26 @@
             this.Estatus.HeaderText = "Estatus";
             this.Estatus.Name = "Estatus";
             this.Estatus.ReadOnly = true;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(288, 47);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(141, 16);
+            this.lblNombre.TabIndex = 7;
+            this.lblNombre.Text = "Nombre del Cliente";
+            // 
+            // lblNumMesa
+            // 
+            this.lblNumMesa.AutoSize = true;
+            this.lblNumMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumMesa.Location = new System.Drawing.Point(34, 47);
+            this.lblNumMesa.Name = "lblNumMesa";
+            this.lblNumMesa.Size = new System.Drawing.Size(112, 16);
+            this.lblNumMesa.TabIndex = 6;
+            this.lblNumMesa.Text = "Numero de Mesa";
             // 
             // frmConsultaMesaIndividual
             // 

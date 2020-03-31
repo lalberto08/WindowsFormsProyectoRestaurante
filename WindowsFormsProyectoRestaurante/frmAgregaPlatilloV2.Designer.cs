@@ -38,7 +38,7 @@
             this.lblCantidad = new System.Windows.Forms.Label();
             this.cmbDescripcion = new System.Windows.Forms.ComboBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNumPedido = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpCantidad)).BeginInit();
             this.SuspendLayout();
@@ -55,10 +55,10 @@
             // lblNumPedido
             // 
             this.lblNumPedido.AutoSize = true;
-            this.lblNumPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumPedido.Location = new System.Drawing.Point(81, 43);
+            this.lblNumPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumPedido.Location = new System.Drawing.Point(58, 43);
             this.lblNumPedido.Name = "lblNumPedido";
-            this.lblNumPedido.Size = new System.Drawing.Size(122, 16);
+            this.lblNumPedido.Size = new System.Drawing.Size(138, 16);
             this.lblNumPedido.TabIndex = 19;
             this.lblNumPedido.Text = "Numero de Pedido";
             // 
@@ -74,6 +74,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 143);
             this.dataGridView1.Name = "dataGridView1";
@@ -88,6 +89,7 @@
             this.btnTerminar.TabIndex = 15;
             this.btnTerminar.Text = "Terminar";
             this.btnTerminar.UseVisualStyleBackColor = true;
+            this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
             // 
             // btnAgregar
             // 
@@ -123,10 +125,10 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.Location = new System.Drawing.Point(389, 87);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(62, 16);
+            this.lblCantidad.Size = new System.Drawing.Size(70, 16);
             this.lblCantidad.TabIndex = 12;
             this.lblCantidad.Text = "Cantidad";
             // 
@@ -141,28 +143,29 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(81, 87);
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(58, 87);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(142, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(165, 16);
             this.lblDescripcion.TabIndex = 11;
             this.lblDescripcion.Text = "Descripcion de Platillo";
             // 
-            // textBox1
+            // txtNumPedido
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(77, 20);
-            this.textBox1.TabIndex = 21;
+            this.txtNumPedido.Location = new System.Drawing.Point(209, 42);
+            this.txtNumPedido.Name = "txtNumPedido";
+            this.txtNumPedido.ReadOnly = true;
+            this.txtNumPedido.Size = new System.Drawing.Size(77, 20);
+            this.txtNumPedido.TabIndex = 21;
             // 
             // frmAgregaPlatilloV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(646, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNumPedido);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.lblNumPedido);
             this.Controls.Add(this.lblNombre);
@@ -194,6 +197,6 @@
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.ComboBox cmbDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNumPedido;
     }
 }

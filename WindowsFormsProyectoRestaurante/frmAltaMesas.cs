@@ -18,23 +18,37 @@ namespace WindowsFormsProyectoRestaurante
             InitializeComponent();
             admMesas = aMesas;
             txtNumMesa.Text = Mesa.RetornaNumMesa().ToString();
+           
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (ValidarDescripcion())
+            if (admMesas.RegresaTamaño() >= 10)
             {
-                string desc = cmbDescripcion.SelectedItem.ToString();
-                int numPersonas = Convert.ToInt32(numUpNumPer.Value.ToString());
-
-                admMesas.AgregaMesas(desc, numPersonas);
-                MessageBox.Show("Mesa Agregada Con Exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //limpia
-                txtNumMesa.Text = Mesa.RetornaNumMesa().ToString();
-                cmbDescripcion.SelectedIndex = -1;
-                numUpNumPer.Value = 1;
+                MessageBox.Show("NUMERO MAXIMO DE MESAS", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                if (ValidarDescripcion())
+                {
+                    string desc = cmbDescripcion.SelectedItem.ToString();
+                    int numPersonas = Convert.ToInt32(numUpNumPer.Value.ToString());
+
+                    admMesas.AgregaMesas(desc, numPersonas);
+                    MessageBox.Show("Mesa Agregada Con Exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (admMesas.RegresaTamaño()<=9)
+                    {
+                        txtNumMesa.Text = Mesa.RetornaNumMesa().ToString();
+                    }
+                    //limpia
+                    cmbDescripcion.SelectedIndex = -1;
+                    numUpNumPer.Value = 1;
+                    cmbDescripcion.Focus();
+                }
+            
+             }
+            
         }
         public bool ValidarDescripcion()
         {
@@ -51,6 +65,7 @@ namespace WindowsFormsProyectoRestaurante
             if (cmbDescripcion.SelectedIndex == -1)
             {
                 ErrorPMesas.SetError(cmbDescripcion, "Descripcion Vacia");
+                cmbDescripcion.Focus();
             }
             else
             {

@@ -145,6 +145,7 @@
             this.txtNumMesa.ReadOnly = true;
             this.txtNumMesa.Size = new System.Drawing.Size(100, 20);
             this.txtNumMesa.TabIndex = 6;
+            this.toolPMesas.SetToolTip(this.txtNumMesa, "Numero De Mesa");
             // 
             // frmAltaMesas
             // 

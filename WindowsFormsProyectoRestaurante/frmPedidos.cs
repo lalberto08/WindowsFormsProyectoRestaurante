@@ -38,14 +38,13 @@ namespace WindowsFormsProyectoRestaurante
 
         private void cmbNumMesa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblNombre.Text = "Nombre del Cliente";
             dgvMesas.Rows.Clear();
             int numM = Convert.ToInt32(cmbNumMesa.SelectedItem.ToString());
             string desc = admMesa.RegresaDescripcion(numM);
             string estatus = admMesa.RegresaEstatus(numM);
             string nombreC = admMesa.RegresaNombreCliente(numM);
             int numP = admMesa.RegresaNumPersonas(numM);
-            lblNombre.Text = nombreC;
+            txtNombrecliente.Text = nombreC;
             dgvMesas.Rows.Add(numM, nombreC, desc, numP, estatus);
         }
 
@@ -55,6 +54,14 @@ namespace WindowsFormsProyectoRestaurante
             for (int i = 0; i < arreglo.Length; i++)
             {
                 cmbNumMesa.Items.Add(arreglo[i]);
+            }
+        }
+
+        private void txtNumPe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsControl(e.KeyChar)) && (!char.IsDigit(e.KeyChar)))
+            {
+                e.Handled = true;
             }
         }
     }

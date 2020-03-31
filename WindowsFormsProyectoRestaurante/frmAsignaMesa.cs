@@ -39,16 +39,24 @@ namespace WindowsFormsProyectoRestaurante
 
         private void btnAsignar_Click(object sender, EventArgs e)
         {
-            if (ValidarNombre())
+            if (ValidarVacio())
             {
-                int numM = Convert.ToInt32(cmbNumMesa.SelectedItem.ToString());
-                string nombreC = txtNombreCliente.Text.ToString();
-                int pos = admMesa.BuscaMesa(numM);
-                admMesa.AsignaMesa(pos, nombreC);
-
-                MessageBox.Show("Mesa Asignada a "+nombreC,"Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-                txtNombreCliente.Text = "";
+                if (ValidarEstatus())
+                {
+                    if (ValidarNombre())
+                    {
+                        int numM = Convert.ToInt32(cmbNumMesa.SelectedItem.ToString());
+                        string nombreC = txtNombreCliente.Text.ToString();
+                        int pos = admMesa.BuscaMesa(numM);
+                        admMesa.AsignaMesa(pos, nombreC);
+                        MessageBox.Show("Mesa Asignada a " + nombreC, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        errorpAsignaMesa.SetError(cmbNumMesa, "");
+                        cmbNumMesa.Text = "";
+                        txtNombreCliente.Text = "";
+                        cmbNumMesa.Focus();
+                        dgvMesas.Rows.Clear();
+                    }
+                }
             }
         }
 
@@ -68,12 +76,36 @@ namespace WindowsFormsProyectoRestaurante
             }
             return retorno;
         }
+        public bool ValidarVacio()
+        {
+            bool retorno = true;
+            string Clave = cmbNumMesa.Text;
+            if (Clave.Equals(""))
+            {
+                errorpAsignaMesa.SetError(cmbNumMesa, "No Se Ha Seleccionado Ningun Numero De Mesa");
+                cmbNumMesa.Focus();
+                retorno = false;
+            }
+            return retorno;
+        }
+        public bool ValidarEstatus()
+        {
+            bool estatus = true;
+            int numM = Convert.ToInt32(cmbNumMesa.SelectedItem.ToString());
+            if (admMesa.RegresaEstatus(numM) == "OCUPADA")
+            {
+                MessageBox.Show("Estatus: OCUPADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                estatus = false;
+            }
+            return estatus;
+        }
 
         private void txtNombreCliente_Validating(object sender, CancelEventArgs e)
         {
             if (txtNombreCliente.Text == "")
             {
                 errorpAsignaMesa.SetError(txtNombreCliente, "No puede dejar este espacio en blanco");
+                txtNombreCliente.Focus();
             }
             else
             {
@@ -81,6 +113,17 @@ namespace WindowsFormsProyectoRestaurante
             }
         }
 
-        
+        private void cmbNumMesa_Validating(object sender, CancelEventArgs e)
+        {
+            if (ValidarVacio() == false)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void cmbNumMesa_Validated(object sender, EventArgs e)
+        {
+            errorpAsignaMesa.SetError(cmbNumMesa, "");
+        }
     }
 }

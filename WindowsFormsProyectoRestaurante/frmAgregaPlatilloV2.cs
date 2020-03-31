@@ -20,5 +20,10 @@ namespace WindowsFormsProyectoRestaurante
             lPLaPedidos = lPlaPe;
             dPedidos = dP;
         }
+
+        private void btnTerminar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

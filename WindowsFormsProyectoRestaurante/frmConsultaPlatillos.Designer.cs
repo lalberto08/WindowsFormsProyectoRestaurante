@@ -40,6 +40,7 @@
             // 
             this.dgvConsultaPlatillos.AllowUserToAddRows = false;
             this.dgvConsultaPlatillos.AllowUserToDeleteRows = false;
+            this.dgvConsultaPlatillos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvConsultaPlatillos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsultaPlatillos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClavePlatillo,
@@ -81,6 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(540, 333);
             this.Controls.Add(this.dgvConsultaPlatillos);
             this.MaximizeBox = false;

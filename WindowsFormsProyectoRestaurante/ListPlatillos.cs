@@ -31,6 +31,19 @@ namespace WindowsFormsProyectoRestaurante
             return cadena;
         }
         //nuevo
+        public bool ValidarPlatilloDesc(string desc)
+        {
+            bool encontrado = false;
+            foreach (Platillo item in ListPlatillo)
+            {
+                if (item.pDesc.Equals(desc))
+                {
+                    encontrado = true;
+                    break;
+                }
+            }
+            return encontrado;
+        }
         public string[] arregloClave()
         {
             string[] cadena = new string[ListPlatillo.Count];

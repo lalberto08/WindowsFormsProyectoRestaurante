@@ -29,6 +29,18 @@ namespace WindowsFormsProyectoRestaurante
             }
             return agrega;
         }
+        public int RegresaTamaño()
+        {
+            int tamaño = 0;
+            foreach(Mesa item in aMesas)
+            {
+                if(item!=null)
+                {
+                    tamaño++;
+                }
+            }
+            return tamaño;
+        }
 
         public void AsignaMesa(int posMesa, string nombreCliente)
         {

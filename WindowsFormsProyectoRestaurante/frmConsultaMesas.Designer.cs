@@ -41,7 +41,7 @@
             // 
             this.dgvConsultaMesas.AllowUserToAddRows = false;
             this.dgvConsultaMesas.AllowUserToDeleteRows = false;
-            this.dgvConsultaMesas.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvConsultaMesas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvConsultaMesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsultaMesas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumMesa,
@@ -92,8 +92,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(607, 301);
             this.Controls.Add(this.dgvConsultaMesas);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConsultaMesas";
