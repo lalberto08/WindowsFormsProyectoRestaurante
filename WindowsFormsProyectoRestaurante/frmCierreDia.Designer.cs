@@ -42,6 +42,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VentasRealizadas,
@@ -99,7 +100,7 @@
             this.ClientSize = new System.Drawing.Size(636, 324);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmCierreDia";
-            this.Text = "frmCierreDia";
+            this.Text = "Cierre Del Dia";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGReportePlaPed = new System.Windows.Forms.DataGridView();
             this.NumPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumPlatillo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGReportePlaPed)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DataGReportePlaPed
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGReportePlaPed.AllowUserToAddRows = false;
+            this.DataGReportePlaPed.AllowUserToDeleteRows = false;
+            this.DataGReportePlaPed.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DataGReportePlaPed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGReportePlaPed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumPedido,
             this.NumPlatillo,
             this.Cantidad});
-            this.dataGridView1.Location = new System.Drawing.Point(-1, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(343, 263);
-            this.dataGridView1.TabIndex = 0;
+            this.DataGReportePlaPed.Location = new System.Drawing.Point(-1, 0);
+            this.DataGReportePlaPed.Name = "DataGReportePlaPed";
+            this.DataGReportePlaPed.ReadOnly = true;
+            this.DataGReportePlaPed.Size = new System.Drawing.Size(343, 263);
+            this.DataGReportePlaPed.TabIndex = 0;
             // 
             // NumPedido
             // 
@@ -74,17 +74,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 261);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataGReportePlaPed);
             this.Name = "frmReportePlatilloPedido";
-            this.Text = "frmReportePlatilloPedido";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Reporte Platillo Pedidos";
+            this.Load += new System.EventHandler(this.frmReportePlatilloPedido_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGReportePlaPed)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataGReportePlaPed;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumPlatillo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;

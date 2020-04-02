@@ -39,19 +39,13 @@ namespace WindowsFormsProyectoRestaurante
         }
 
         private void btnTerminar_Click(object sender, EventArgs e)
-        {
-            this.Close();
+        {   
+            DialogResult result = MessageBox.Show("¿Estas Seguro De Salir?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
-
-        private void cmbNumPe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dtgvPlatillo.Rows.Clear();
-            numPe = Convert.ToInt32(cmbNumPe.SelectedItem.ToString());
-            numMesa = dPedidos.PedidoMesa(numPe);
-            string nombreC = admMesa.RegresaNombreCliente(numMesa);
-            lblNombre.Text = nombreC;
-        }
-
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             dtgvPlatillo.Rows.Remove(dtgvPlatillo.CurrentRow);
@@ -69,10 +63,8 @@ namespace WindowsFormsProyectoRestaurante
 
             double importe = listPlatillos.RegresaImporte(clavePla);
             int tiempo = listPlatillos.RegresaTiempo(clavePla);
-            for (int i = 0; i < cant; i++)
-            {
-                dtgvPlatillo.Rows.Add(cant,desc,importe,tiempo);
-            }
+            dtgvPlatillo.Rows.Add(desc,cant,importe,tiempo);
+          
             numPla += cant;
             lPLaPedidos.AgregarPlatillo(numPe, clavePla, cant);
             dPedidos.AgregaPlatillo(numPe, cant);
@@ -83,7 +75,7 @@ namespace WindowsFormsProyectoRestaurante
             string[] numPedidos = dPedidos.arregloNumPedidos();
             for (int i = 0; i < numPedidos.Length; i++)
             {
-                cmbNumPe.Items.Add(numPedidos[i]);
+                txtNumPedido.Text = numPedidos[i];
             }
             string[] descripcion = listPlatillos.arregloDescripcion();
             for (int i = 0; i < descripcion.Length; i++)
@@ -92,9 +84,8 @@ namespace WindowsFormsProyectoRestaurante
             }
 
             if (op != 1)
-            {
-                cmbNumPe.Enabled = false;
-                cmbNumPe.Text = numPe.ToString();
+            { 
+                txtNumPedido.Text= numPe.ToString();
                 string nombreC = admMesa.RegresaNombreCliente(numMesa);
                 lblNombre.Text = nombreC;
             }

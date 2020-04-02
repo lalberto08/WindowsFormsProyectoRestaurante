@@ -110,6 +110,72 @@ namespace WindowsFormsProyectoRestaurante
                 }
             }
         }
+        public int[] RetornaNumPedidos()
+        {
+            int[] ArreglonumP = new int[lPlatillosPedidos.Count];
+            int pos= 0;
+            foreach(PlatilloPedido item in lPlatillosPedidos)
+            {
+                if(item!=null)
+                {
+                    ArreglonumP[pos] = item.pNumP;
+                    pos++;
+                }
+            }
+            return ArreglonumP;
+        }
+        public int[] RetornaClvsP()
+        {
+            int[] ArregloClavesP = new int[lPlatillosPedidos.Count];
+            int pos = 0;
+            foreach (PlatilloPedido item in lPlatillosPedidos)
+            {
+                if (item != null)
+                {
+                    ArregloClavesP[pos] = item.pClaveP;
+                    pos++;
+                }
+            }
+            return ArregloClavesP;
+        }
+        public int[] RetornaCant()
+        {
+            int[] ArregloCantidad = new int[lPlatillosPedidos.Count];
+            int pos = 0;
+            foreach (PlatilloPedido item in lPlatillosPedidos)
+            {
+                if (item != null)
+                {
+                    ArregloCantidad[pos] = item.pCantidad;
+                    pos++;
+                }
+            }
+            return ArregloCantidad;
+        }
+        public bool ListVacio()
+        {
+            bool vacio = false;
+            if (lPlatillosPedidos.Count() == 0)
+            {
+                vacio = true;
+            }
+            return vacio;
+        }
+        public bool numPExiste(int numP)
+        {
+            bool existe = false;
+            foreach(PlatilloPedido item in lPlatillosPedidos)
+            {
+                if (item != null)
+                {
+                    if (item.pNumP.Equals(numP))
+                    {
+                        existe = true;
+                    }
+                }
+            }
+            return existe;
+        }
         /*
         public string[] ImprimePlatilloClave(int numP)
         {

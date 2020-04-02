@@ -134,7 +134,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConsultaMesaIndividual";
-            this.Text = "frmConsultaMesaIndividual";
+            this.Text = "Consulta Mesa Individual";
             this.Load += new System.EventHandler(this.frmConsultaMesaIndividual_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).EndInit();
             this.ResumeLayout(false);

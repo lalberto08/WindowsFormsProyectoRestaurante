@@ -27,22 +27,94 @@ namespace WindowsFormsProyectoRestaurante
 
         private void btnAgregaPlatillo_Click(object sender, EventArgs e)
         {
-            int numPe = Convert.ToInt32(txtNumPe.Text);
-            int numM = Convert.ToInt32(cmbNumMesa.SelectedItem);
-            frmAgregaPlatilloV2 agrega = new frmAgregaPlatilloV2(listPlatillos, dPedidos, lPLaPedidos,admMesa,numPe, numM,2);
-            agrega.ShowDialog();
-            txtNumPe.Enabled = false;
-            cmbNumMesa.Enabled = false;
+            bool agregar = true;
+            if (ValidarVacio())
+            {
+                if (ValidarVacioPedido())
+                {
+                    int numPe = Convert.ToInt32(txtNumPe.Text);
+                    if (lPLaPedidos.numPExiste(numPe))
+                    {
+                        ErrorPPedido.SetError(txtNumPe, "Numero De Pedido Invalido");
+                        txtNumPe.Focus();
+                        agregar = false;
+                    }
+                    int numM = Convert.ToInt32(cmbNumMesa.SelectedItem);
+                    if (admMesa.RegresaNombreCliente(numM).Equals("NO ASIGNADA"))
+                    {
+                        MessageBox.Show("MESA SIN ASIGNAR!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //limpiar errorprovider
+                        ErrorPPedido.SetError(cmbNumMesa, "");
+                        ErrorPPedido.SetError(txtNumPe, "");
+                        agregar = false;
+                    }
+                    if (listPlatillos.ListVacio())
+                    {
+                        MessageBox.Show("NO HAY PLATILLOS AGREGADOS!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        agregar = false;
+                    }
+                    if (agregar != false)
+                    {
+                        frmAgregaPlatilloV2 agrega = new frmAgregaPlatilloV2(listPlatillos, dPedidos, lPLaPedidos, admMesa, numPe, numM, 2);
+                        agrega.ShowDialog();
+                        txtNumPe.Enabled = false;
+                        cmbNumMesa.Enabled = false;
+                        //limpiar errorprovider
+                        ErrorPPedido.SetError(cmbNumMesa, "");
+                        ErrorPPedido.SetError(txtNumPe, "");
+                    }
+                }
+            }
         }
 
         private void btmGuardar_Click(object sender, EventArgs e)
         {
-            int numPe = Convert.ToInt32(txtNumPe.Text);
-            int numM =Convert.ToInt32(cmbNumMesa.SelectedItem);
-            int numBe = Convert.ToInt32(numUpBebidas.Value);
-            int numPla = lPLaPedidos.CalcularNumPlatillos(numPe);
-            dPedidos.AgregaPedido(numPe,numM,numBe,numPla);
-            MessageBox.Show("Pedido Agregado Correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            bool guardar = true;
+            if (ValidarVacio())
+            {
+                if (ValidarVacioPedido())
+                {
+                    int numM = Convert.ToInt32(cmbNumMesa.SelectedItem);
+                    if (admMesa.RegresaNombreCliente(numM).Equals("NO ASIGNADA"))
+                    {
+                        MessageBox.Show("MESA SIN ASIGNAR!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //limpiar errorprovider
+                        ErrorPPedido.SetError(cmbNumMesa, "");
+                        ErrorPPedido.SetError(txtNumPe, "");
+                        guardar = false;
+                    }
+                    //Falta validar que no deje guardar sin antes haber pedido un platillo, hay un error al quitar el platillo
+                    int numPe = Convert.ToInt32(txtNumPe.Text);
+                    if (lPLaPedidos.numPExiste(numPe)!=true)
+                    {
+                      MessageBox.Show("NO HAY PLATILLOS AGREGADOS!,FAVOR DE AGREGAR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                      guardar = false;
+                    }
+                    if(dPedidos.BuscaPedido(numPe)!=false)
+                    {
+                        MessageBox.Show("NUMERO DE PEDIDO INVALIDO!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        guardar = false;
+                    }
+                    if(guardar != false)
+                    {
+                        int numBe = Convert.ToInt32(numUpBebidas.Value);
+                        int numPla = lPLaPedidos.CalcularNumPlatillos(numPe);
+                        dPedidos.AgregaPedido(numPe, numM, numBe, numPla);
+                        MessageBox.Show("Pedido Agregado Correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //limpiar errorprovider
+                        ErrorPPedido.SetError(cmbNumMesa, "");
+                        ErrorPPedido.SetError(txtNumPe, "");
+                        //limpiar al guardar
+                        cmbNumMesa.Text = "";
+                        txtNombrecliente.Text = "";
+                        txtNumPe.Text = "";
+                        dgvMesas.Rows.Clear();
+                        txtNumPe.Enabled = true;
+                        cmbNumMesa.Enabled = true;
+                        cmbNumMesa.Focus();
+                    }
+                }
+            }
         }
 
         private void cmbNumMesa_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +128,7 @@ namespace WindowsFormsProyectoRestaurante
             txtNombrecliente.Text = nombreC;
             dgvMesas.Rows.Add(numM, nombreC, desc, numP, estatus);
         }
+        
 
         private void frmPedidos_Load(object sender, EventArgs e)
         {
@@ -72,6 +145,51 @@ namespace WindowsFormsProyectoRestaurante
             {
                 e.Handled = true;
             }
+        }
+        public bool ValidarVacio()
+        {
+            bool retorno = true;
+            string Clave = cmbNumMesa.Text;
+            if (Clave.Equals(""))
+            {
+                ErrorPPedido.SetError(cmbNumMesa, "No Se Ha Seleccionado Ningun Numero De Mesa");
+                cmbNumMesa.Focus();
+                retorno = false;
+            }
+            return retorno;
+        }
+        public bool ValidarVacioPedido()
+        {
+            bool retorno = true;
+            string NumPedido = txtNumPe.Text;
+            if (NumPedido.Equals(""))
+            {
+                ErrorPPedido.SetError(txtNumPe, "No Se Ha Proporcionado El Numero De Pedido");
+                txtNumPe.Focus();
+                retorno = false;
+            }
+            return retorno;
+        }
+
+        private void cmbNumMesa_Validating(object sender, CancelEventArgs e)
+        {
+            if (ValidarVacio() == false)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void txtNumPe_Validating(object sender, CancelEventArgs e)
+        {
+            if (ValidarVacioPedido() == false)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void cmbNumMesa_Validated(object sender, EventArgs e)
+        {
+            ErrorPPedido.SetError(cmbNumMesa, "");
         }
     }
 }

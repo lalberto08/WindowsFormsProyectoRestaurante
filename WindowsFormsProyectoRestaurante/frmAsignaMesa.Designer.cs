@@ -174,7 +174,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAsignaMesa";
-            this.Text = "frmAsignaMesa";
+            this.Text = "Asignar Mesa";
             this.Load += new System.EventHandler(this.frmAsignaMesa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorpAsignaMesa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMesas)).EndInit();

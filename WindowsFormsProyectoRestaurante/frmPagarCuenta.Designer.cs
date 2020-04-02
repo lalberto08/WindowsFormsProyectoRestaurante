@@ -103,7 +103,7 @@
             this.Controls.Add(this.cmbNumPe);
             this.Controls.Add(this.lblNumPedido);
             this.Name = "frmPagarCuenta";
-            this.Text = "frmPagarCuenta";
+            this.Text = "Pagar Cuenta";
             this.ResumeLayout(false);
             this.PerformLayout();
 

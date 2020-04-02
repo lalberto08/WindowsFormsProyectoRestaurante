@@ -18,5 +18,16 @@ namespace WindowsFormsProyectoRestaurante
             InitializeComponent();
             lPlaPe = lpp;
         }
+
+        private void frmReportePlatilloPedido_Load(object sender, EventArgs e)
+        {
+            int[] numPe = lPlaPe.RetornaNumPedidos();
+            int[] ClaveP = lPlaPe.RetornaClvsP();
+            int[] Cant = lPlaPe.RetornaCant();
+            for (int i = 0; i < numPe.Length; i++)
+            {
+                DataGReportePlaPed.Rows.Add(numPe[i], ClaveP[i],Cant[i]);
+            }
+        }
     }
 }

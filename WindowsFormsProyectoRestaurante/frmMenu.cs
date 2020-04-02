@@ -33,7 +33,11 @@ namespace WindowsFormsProyectoRestaurante
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("¿Deseas Salir?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }  
         }
 
         private void todasToolStripMenuItem_Click(object sender, EventArgs e)

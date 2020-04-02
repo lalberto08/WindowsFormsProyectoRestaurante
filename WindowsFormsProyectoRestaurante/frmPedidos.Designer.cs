@@ -55,12 +55,14 @@
             // 
             // txtNumPe
             // 
+            this.txtNumPe.CausesValidation = false;
             this.txtNumPe.Location = new System.Drawing.Point(394, 116);
             this.txtNumPe.Name = "txtNumPe";
             this.txtNumPe.Size = new System.Drawing.Size(135, 20);
             this.txtNumPe.TabIndex = 0;
             this.ToolTPedido.SetToolTip(this.txtNumPe, "Numero Del Pedido");
             this.txtNumPe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumPe_KeyPress);
+            this.txtNumPe.Validating += new System.ComponentModel.CancelEventHandler(this.txtNumPe_Validating);
             // 
             // lblNumPe
             // 
@@ -84,6 +86,7 @@
             // 
             // cmbNumMesa
             // 
+            this.cmbNumMesa.CausesValidation = false;
             this.cmbNumMesa.FormattingEnabled = true;
             this.cmbNumMesa.Location = new System.Drawing.Point(62, 116);
             this.cmbNumMesa.Name = "cmbNumMesa";
@@ -91,6 +94,8 @@
             this.cmbNumMesa.TabIndex = 0;
             this.ToolTPedido.SetToolTip(this.cmbNumMesa, "Numero De Mesa");
             this.cmbNumMesa.SelectedIndexChanged += new System.EventHandler(this.cmbNumMesa_SelectedIndexChanged);
+            this.cmbNumMesa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbNumMesa_Validating);
+            this.cmbNumMesa.Validated += new System.EventHandler(this.cmbNumMesa_Validated);
             // 
             // lblNumBebidas
             // 
