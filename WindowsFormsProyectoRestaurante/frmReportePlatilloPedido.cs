@@ -22,7 +22,7 @@ namespace WindowsFormsProyectoRestaurante
         private void frmReportePlatilloPedido_Load(object sender, EventArgs e)
         {
             int[] numPe = lPlaPe.RetornaNumPedidos();
-            int[] ClaveP = lPlaPe.RetornaClvsP();
+            int[] ClaveP = lPlaPe.RetornaClavesP();
             int[] Cant = lPlaPe.RetornaCant();
             for (int i = 0; i < numPe.Length; i++)
             {

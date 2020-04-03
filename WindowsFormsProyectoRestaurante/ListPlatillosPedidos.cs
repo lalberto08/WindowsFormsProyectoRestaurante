@@ -65,7 +65,6 @@ namespace WindowsFormsProyectoRestaurante
         }
         public int CalcularNumPlatillos(int numPe)
         {
-            int clave = 0;
             int cont = 0;
             for (int i = 0; i < lPlatillosPedidos.Count; i++)
             {
@@ -124,7 +123,7 @@ namespace WindowsFormsProyectoRestaurante
             }
             return ArreglonumP;
         }
-        public int[] RetornaClvsP()
+        public int[] RetornaClavesP()
         {
             int[] ArregloClavesP = new int[lPlatillosPedidos.Count];
             int pos = 0;
@@ -176,27 +175,123 @@ namespace WindowsFormsProyectoRestaurante
             }
             return existe;
         }
-        /*
-        public string[] ImprimePlatilloClave(int numP)
+        
+        public string[] RegresaPlatilloDescripcion(int numP)
         {
-            int cant = this.CalcularNumPlatillos(numP);
-            string[] arreglo = new string[cant];
-            string[] clave = lPlatillos.arregloClave();
+            int numPlatillos = this.CalcularNumPlatillos(numP);
+            int[] claves = this.RetornaClavesP();
+            string[] cadena = new string[numPlatillos];
             int pos = 0;
-            for (int i = 0; i < lPlatillosPedidos.Count; i++)
-            {
-                for (int j = 0; j < lPlatillos.Tamaño(); j++)
+
+            string desc = "";
+            int clavePla = 0, cant = 0;
+
+                for (int j = 0; j < lPlatillosPedidos.Count; j++)
                 {
-                    if (lPlatillosPedidos.ElementAt(i).pClaveP.Equals(clave[j]))
-                    {
-                        double importe = lPlatillos.RegresaImporte(clave[j]);
-                        string cadena = clave[j];
-                        arreglo []
+                    clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
+                    cant = lPlatillosPedidos.ElementAt(j).pCantidad;
+                    for (int k = 0; k < claves.Length; k++)
+                    {  
+                        if (clavePla == claves[k])
+                        {
+                            desc = lPlatillos.RegresaDescripcion(claves[k]);
+                            for (int l = 0; l < cant; l++)
+                            {
+                                cadena[pos] = desc;
+                                pos++;
+                            }
+                            break;
+                        }
                     }
                 }
-                
-            }
+            return cadena;
         }
-        */
+        public string[] RegresaPlatilloImporte(int numP)
+        {
+            int numPlatillos = this.CalcularNumPlatillos(numP);
+            int[] claves = this.RetornaClavesP();
+            string[] cadena = new string[numPlatillos];
+            int pos = 0;
+
+            double importe = 0;
+            int clavePla = 0, cant = 0;
+
+            for (int j = 0; j < lPlatillosPedidos.Count; j++)
+            {
+                clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
+                cant = lPlatillosPedidos.ElementAt(j).pCantidad;
+                for (int k = 0; k < claves.Length; k++)
+                {
+                    if (clavePla == claves[k])
+                    {
+                        importe = lPlatillos.RegresaImporte(claves[k]);
+                        for (int l = 0; l < cant; l++)
+                        {
+                            cadena[pos] = importe.ToString();
+                            pos++;
+                        }
+                        break;
+                    }
+                }
+            }
+            return cadena;
+        }
+        public string[] RegresaPlatilloTiempo(int numP)
+        {
+            int numPlatillos = this.CalcularNumPlatillos(numP);
+            int[] claves = this.RetornaClavesP();
+            string[] cadena = new string[numPlatillos];
+            int pos = 0;
+
+            int clavePla = 0, cant = 0, tiempo = 0;
+
+            for (int j = 0; j < lPlatillosPedidos.Count; j++)
+            {
+                clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
+                cant = lPlatillosPedidos.ElementAt(j).pCantidad;
+                for (int k = 0; k < claves.Length; k++)
+                {
+                    if (clavePla == claves[k])
+                    {
+                        tiempo = lPlatillos.RegresaTiempo(claves[k]);
+                        for (int l = 0; l < cant; l++)
+                        {
+                            cadena[pos] = tiempo.ToString();
+                            pos++;
+                        }
+                        break;
+                    }
+                }
+            }
+            return cadena;
+        }
+        public string[] RegresaPlatilloClaves(int numP)
+        {
+            int numPlatillos = this.CalcularNumPlatillos(numP);
+            int[] claves = this.RetornaClavesP();
+            string[] cadena = new string[numPlatillos];
+            int pos = 0;
+
+            int clavePla = 0, cant = 0;
+
+            for (int j = 0; j < lPlatillosPedidos.Count; j++)
+            {
+                clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
+                cant = lPlatillosPedidos.ElementAt(j).pCantidad;
+                for (int k = 0; k < claves.Length; k++)
+                {
+                    if (clavePla == claves[k])
+                    {
+                        for (int l = 0; l < cant; l++)
+                        {
+                            cadena[pos] = clavePla.ToString();
+                            pos++;
+                        }
+                        break;
+                    }
+                }
+            }
+            return cadena;
+        }
     }
 }

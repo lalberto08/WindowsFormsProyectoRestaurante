@@ -16,9 +16,9 @@ namespace WindowsFormsProyectoRestaurante
             DicPedidos = new Dictionary<int, Pedido>();
             lp = lPlaPe;
         }
-        public void AgregaPedido(int numPe, int numM, int numbe, int numpla)
+        public void AgregaPedido(int numPe, int numM, int numbe)
         {
-            Pedido p = new Pedido(numM, numbe, numpla);
+            Pedido p = new Pedido(numM, numbe);
             DicPedidos.Add(numPe, p);
         }
         public string[] ReportePedidos()
@@ -91,6 +91,60 @@ namespace WindowsFormsProyectoRestaurante
             }
             return cadena;
         }
+        public int RegresaNumMesa(int numPed)
+        {
+            int numPedido = 0;
+            Pedido p;
+            int numM = 0;
+
+            for (int i = 0; i < DicPedidos.Count; i++)
+            {
+                KeyValuePair<int, Pedido> dato = DicPedidos.ElementAt(i);
+                numPedido = dato.Key;
+                p = dato.Value;
+                if (numPedido == numPed)
+                {
+                    numM = p.pNumMesa;
+                }
+            }
+            return numM;
+        }
+        public int RegresaNumBebibas(int numPed)
+        {
+            int numPedido = 0;
+            Pedido p;
+            int numB = 0;
+
+            for (int i = 0; i < DicPedidos.Count; i++)
+            {
+                KeyValuePair<int, Pedido> dato = DicPedidos.ElementAt(i);
+                numPedido = dato.Key;
+                p = dato.Value;
+                if (numPedido == numPed)
+                {
+                    numB = p.pnumBebidas;
+                }
+            }
+            return numB;
+        }
+        public int RegresaNumPla(int numPed)
+        {
+            int numPedido = 0;
+            Pedido p;
+            int numPla = 0;
+            
+            for (int i = 0; i < DicPedidos.Count; i++)
+            {
+                KeyValuePair<int, Pedido> dato = DicPedidos.ElementAt(i);
+                numPedido = dato.Key;
+                p = dato.Value;
+                if (numPedido == numPed)
+                {
+                    numPla = p.pNumPlatillos;
+                }
+            }
+            return numPla;
+        }
         public bool BuscaPedido(int num)
         {
             bool existe = false;
@@ -104,6 +158,24 @@ namespace WindowsFormsProyectoRestaurante
                 }
             }
             return existe;
+        }
+        public void ActualizaPedido (int numPed)
+        {
+            int numP = 0;
+            Pedido p;
+            int cantidad = 0;
+            for (int i = 0; i < DicPedidos.Count; i++)
+            {
+                KeyValuePair<int, Pedido> dato = DicPedidos.ElementAt(i);
+                numP = dato.Key;
+                p = dato.Value;
+                if (numP == numPed)
+                {
+                    cantidad = lp.CalcularNumPlatillos(numP);
+                    p.pNumPlatillos = cantidad;
+                    break;
+                }
+            }
         }
         public void AgregaPlatillo(int numPed, int cantidad)
         {

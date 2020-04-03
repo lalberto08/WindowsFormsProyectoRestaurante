@@ -55,6 +55,8 @@ namespace WindowsFormsProyectoRestaurante
                     }
                     if (agregar != false)
                     {
+                        int numBe = Convert.ToInt32(numUpBebidas.Value);
+                        dPedidos.AgregaPedido(numPe, numM, numBe);
                         frmAgregaPlatilloV2 agrega = new frmAgregaPlatilloV2(listPlatillos, dPedidos, lPLaPedidos, admMesa, numPe, numM, 2);
                         agrega.ShowDialog();
                         txtNumPe.Enabled = false;
@@ -90,16 +92,8 @@ namespace WindowsFormsProyectoRestaurante
                       MessageBox.Show("NO HAY PLATILLOS AGREGADOS!,FAVOR DE AGREGAR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                       guardar = false;
                     }
-                    if(dPedidos.BuscaPedido(numPe)!=false)
-                    {
-                        MessageBox.Show("NUMERO DE PEDIDO INVALIDO!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        guardar = false;
-                    }
                     if(guardar != false)
                     {
-                        int numBe = Convert.ToInt32(numUpBebidas.Value);
-                        int numPla = lPLaPedidos.CalcularNumPlatillos(numPe);
-                        dPedidos.AgregaPedido(numPe, numM, numBe, numPla);
                         MessageBox.Show("Pedido Agregado Correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //limpiar errorprovider
                         ErrorPPedido.SetError(cmbNumMesa, "");

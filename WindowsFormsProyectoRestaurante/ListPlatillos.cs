@@ -92,7 +92,18 @@ namespace WindowsFormsProyectoRestaurante
             }
             return cadena;
         }
-
+        public string RegresaDescripcion(int clavePla)
+        {
+            string desc = "";
+            foreach (Platillo item in ListPlatillo)
+            {
+                if (item.pClave.Equals(clavePla))
+                {
+                    desc = item.pDesc;
+                }
+            }
+            return desc;
+        }
         public double RegresaImporte (int clavePla)
         {
             double importe=0;

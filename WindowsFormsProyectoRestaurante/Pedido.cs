@@ -10,11 +10,10 @@ namespace WindowsFormsProyectoRestaurante
     {
        private int numMesa, numBebidas, numPlatillos;
 
-        public Pedido(int numM, int numbe, int numpla)
+        public Pedido(int numM, int numbe)
         {
             numMesa = numM;
             numBebidas = numbe;
-            numPlatillos = numpla;
         }
 
         public int pNumMesa

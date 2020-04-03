@@ -16,7 +16,7 @@ namespace WindowsFormsProyectoRestaurante
         ListPlatillosPedidos lPLaPedidos;
         DictionaryPedidos dPedidos;
         AdministraMesa admMesa;
-        int numPe, numMesa, numPla=0, op=1;
+        int numPe, numMesa, op=1;
         public frmAgregaPlatilloV2(ListPlatillos lPlatillos, DictionaryPedidos dP, ListPlatillosPedidos lPlaPe, AdministraMesa aM)
         {
             InitializeComponent();
@@ -45,14 +45,41 @@ namespace WindowsFormsProyectoRestaurante
             {
                 this.Close();
             }
+            dtgvPlatillo.Rows.Clear();
         }
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            dtgvPlatillo.Rows.Remove(dtgvPlatillo.CurrentRow);
             int clavePla = Convert.ToInt32(dtgvPlatillo.CurrentRow.Cells[0].Value);
-            numPla -= 1;
             lPLaPedidos.QuitarPlatillo(numPe, clavePla);
-            dPedidos.QuitaPlatillo(numPe);
+            dPedidos.ActualizaPedido(numPe);
+
+            dtgvPlatillo.Rows.Clear();
+            string[] Aclave = lPLaPedidos.RegresaPlatilloClaves(numPe);
+            string[] Adesc = lPLaPedidos.RegresaPlatilloDescripcion(numPe);
+            string[] Aimporte = lPLaPedidos.RegresaPlatilloImporte(numPe);
+            string[] Atiempo = lPLaPedidos.RegresaPlatilloTiempo(numPe);
+            for (int i = 0; i < Aclave.Length; i++)
+            {
+                dtgvPlatillo.Rows.Add(Aclave[i], Adesc[i], Aimporte[i], Atiempo[i]);
+            }
+        }
+
+        private void cmbNumPe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dtgvPlatillo.Rows.Clear();
+            numPe = Convert.ToInt32(cmbNumPe.SelectedItem.ToString());
+            numMesa = dPedidos.PedidoMesa(numPe);
+            string nombreC = admMesa.RegresaNombreCliente(numMesa);
+            lblNombre.Text = nombreC;
+
+            string[] Aclave = lPLaPedidos.RegresaPlatilloClaves(numPe);
+            string[] Adesc = lPLaPedidos.RegresaPlatilloDescripcion(numPe);
+            string[] Aimporte = lPLaPedidos.RegresaPlatilloImporte(numPe);
+            string[] Atiempo = lPLaPedidos.RegresaPlatilloTiempo(numPe);
+            for (int i = 0; i < Aclave.Length; i++)
+            {
+                dtgvPlatillo.Rows.Add(Aclave[i], Adesc[i], Aimporte[i], Atiempo[i]);
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -60,14 +87,20 @@ namespace WindowsFormsProyectoRestaurante
             int cant = Convert.ToInt32(numUpCantidad.Value.ToString());
             string desc = cmbDescripcion.SelectedItem.ToString();
             int clavePla = listPlatillos.NombreAClave(desc);
-
             double importe = listPlatillos.RegresaImporte(clavePla);
             int tiempo = listPlatillos.RegresaTiempo(clavePla);
-            dtgvPlatillo.Rows.Add(desc,cant,importe,tiempo);
-          
-            numPla += cant;
             lPLaPedidos.AgregarPlatillo(numPe, clavePla, cant);
-            dPedidos.AgregaPlatillo(numPe, cant);
+            dPedidos.ActualizaPedido(numPe);
+            //agrega al grid
+            dtgvPlatillo.Rows.Clear();
+            string[] Aclave = lPLaPedidos.RegresaPlatilloClaves(numPe);
+            string[] Adesc = lPLaPedidos.RegresaPlatilloDescripcion(numPe);
+            string[] Aimporte = lPLaPedidos.RegresaPlatilloImporte(numPe);
+            string[] Atiempo = lPLaPedidos.RegresaPlatilloTiempo(numPe);
+            for (int i = 0; i < Aclave.Length; i++)
+            {
+                dtgvPlatillo.Rows.Add(Aclave[i], Adesc[i], Aimporte[i], Atiempo[i]);
+            }
         }
 
         private void frmAgregaPlatilloV2_Load(object sender, EventArgs e)
@@ -75,7 +108,7 @@ namespace WindowsFormsProyectoRestaurante
             string[] numPedidos = dPedidos.arregloNumPedidos();
             for (int i = 0; i < numPedidos.Length; i++)
             {
-                txtNumPedido.Text = numPedidos[i];
+                cmbNumPe.Items.Add(numPedidos[i]);
             }
             string[] descripcion = listPlatillos.arregloDescripcion();
             for (int i = 0; i < descripcion.Length; i++)
@@ -84,11 +117,22 @@ namespace WindowsFormsProyectoRestaurante
             }
 
             if (op != 1)
-            { 
-                txtNumPedido.Text= numPe.ToString();
+            {
+                cmbNumPe.Enabled = false;
+                cmbNumPe.Text = numPe.ToString();
                 string nombreC = admMesa.RegresaNombreCliente(numMesa);
                 lblNombre.Text = nombreC;
+
+                string[] Aclave = lPLaPedidos.RegresaPlatilloClaves(numPe);
+                string[] Adesc = lPLaPedidos.RegresaPlatilloDescripcion(numPe);
+                string[] Aimporte = lPLaPedidos.RegresaPlatilloImporte(numPe);
+                string[] Atiempo = lPLaPedidos.RegresaPlatilloTiempo(numPe);
+                for (int i = 0; i < Aclave.Length; i++)
+                {
+                    dtgvPlatillo.Rows.Add(Aclave[i], Adesc[i], Aimporte[i], Atiempo[i]);
+                }
             }
+
         }
     }
 }
