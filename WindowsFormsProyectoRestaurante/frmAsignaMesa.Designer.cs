@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNumMesa = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
@@ -49,20 +51,20 @@
             // lblNumMesa
             // 
             this.lblNumMesa.AutoSize = true;
-            this.lblNumMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumMesa.Location = new System.Drawing.Point(35, 38);
+            this.lblNumMesa.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumMesa.Location = new System.Drawing.Point(12, 38);
             this.lblNumMesa.Name = "lblNumMesa";
-            this.lblNumMesa.Size = new System.Drawing.Size(112, 16);
+            this.lblNumMesa.Size = new System.Drawing.Size(140, 17);
             this.lblNumMesa.TabIndex = 1;
             this.lblNumMesa.Text = "Numero de Mesa";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(35, 91);
+            this.lblNombre.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(12, 91);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(123, 16);
+            this.lblNombre.Size = new System.Drawing.Size(157, 17);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre del Cliente";
             // 
@@ -79,8 +81,8 @@
             // 
             // btnAsignar
             // 
-            this.btnAsignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignar.Location = new System.Drawing.Point(215, 253);
+            this.btnAsignar.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignar.Location = new System.Drawing.Point(215, 215);
             this.btnAsignar.Name = "btnAsignar";
             this.btnAsignar.Size = new System.Drawing.Size(139, 34);
             this.btnAsignar.TabIndex = 2;
@@ -110,7 +112,17 @@
             // 
             this.dgvMesas.AllowUserToAddRows = false;
             this.dgvMesas.AllowUserToDeleteRows = false;
-            this.dgvMesas.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvMesas.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.dgvMesas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMesas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMesas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMesas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumMesa,
@@ -118,11 +130,21 @@
             this.Descripcion,
             this.NumPersonas,
             this.Estatus});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMesas.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMesas.EnableHeadersVisualStyles = false;
             this.dgvMesas.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvMesas.Location = new System.Drawing.Point(1, 132);
+            this.dgvMesas.Location = new System.Drawing.Point(-1, 130);
             this.dgvMesas.Name = "dgvMesas";
             this.dgvMesas.ReadOnly = true;
-            this.dgvMesas.Size = new System.Drawing.Size(604, 109);
+            this.dgvMesas.RowHeadersVisible = false;
+            this.dgvMesas.Size = new System.Drawing.Size(604, 79);
             this.dgvMesas.TabIndex = 3;
             this.toolTipAsigna.SetToolTip(this.dgvMesas, "Informacion de la Mesa");
             // 
@@ -158,13 +180,14 @@
             this.Estatus.HeaderText = "Estatus";
             this.Estatus.Name = "Estatus";
             this.Estatus.ReadOnly = true;
+            this.Estatus.Width = 140;
             // 
             // frmAsignaMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(606, 299);
+            this.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.ClientSize = new System.Drawing.Size(600, 257);
             this.Controls.Add(this.cmbNumMesa);
             this.Controls.Add(this.dgvMesas);
             this.Controls.Add(this.btnAsignar);

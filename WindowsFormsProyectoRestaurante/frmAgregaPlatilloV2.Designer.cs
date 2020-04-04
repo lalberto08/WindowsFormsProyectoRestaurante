@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.lblNumPedido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -63,20 +65,20 @@
             // lblNumPedido
             // 
             this.lblNumPedido.AutoSize = true;
-            this.lblNumPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumPedido.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumPedido.Location = new System.Drawing.Point(47, 31);
             this.lblNumPedido.Name = "lblNumPedido";
-            this.lblNumPedido.Size = new System.Drawing.Size(138, 16);
+            this.lblNumPedido.Size = new System.Drawing.Size(153, 17);
             this.lblNumPedido.TabIndex = 19;
             this.lblNumPedido.Text = "Numero de Pedido";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(386, 31);
+            this.lblNombre.Font = new System.Drawing.Font("Lucida Calligraphy", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(374, 29);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(63, 16);
+            this.lblNombre.Size = new System.Drawing.Size(85, 21);
             this.lblNombre.TabIndex = 17;
             this.lblNombre.Text = "Nombre";
             // 
@@ -84,21 +86,42 @@
             // 
             this.dtgvPlatillo.AllowUserToAddRows = false;
             this.dtgvPlatillo.AllowUserToDeleteRows = false;
-            this.dtgvPlatillo.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dtgvPlatillo.BackgroundColor = System.Drawing.Color.Turquoise;
+            this.dtgvPlatillo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgvPlatillo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SlateBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MediumSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvPlatillo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvPlatillo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvPlatillo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Clave,
             this.Descripcion,
             this.Importe,
             this.Tiempo});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SlateBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvPlatillo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgvPlatillo.EnableHeadersVisualStyles = false;
             this.dtgvPlatillo.Location = new System.Drawing.Point(38, 156);
             this.dtgvPlatillo.Name = "dtgvPlatillo";
             this.dtgvPlatillo.ReadOnly = true;
-            this.dtgvPlatillo.Size = new System.Drawing.Size(524, 183);
+            this.dtgvPlatillo.RowHeadersVisible = false;
+            this.dtgvPlatillo.Size = new System.Drawing.Size(522, 202);
             this.dtgvPlatillo.TabIndex = 16;
             // 
             // btnTerminar
             // 
+            this.btnTerminar.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTerminar.Location = new System.Drawing.Point(258, 364);
             this.btnTerminar.Name = "btnTerminar";
             this.btnTerminar.Size = new System.Drawing.Size(105, 34);
@@ -145,10 +168,10 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(386, 76);
+            this.lblCantidad.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(375, 76);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(70, 16);
+            this.lblCantidad.Size = new System.Drawing.Size(81, 17);
             this.lblCantidad.TabIndex = 12;
             this.lblCantidad.Text = "Cantidad";
             // 
@@ -163,10 +186,10 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(47, 75);
+            this.lblDescripcion.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(35, 75);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(165, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(188, 17);
             this.lblDescripcion.TabIndex = 11;
             this.lblDescripcion.Text = "Descripcion de Platillo";
             // 
@@ -203,13 +226,13 @@
             this.Tiempo.HeaderText = "Tiempo de Preparacion";
             this.Tiempo.Name = "Tiempo";
             this.Tiempo.ReadOnly = true;
-            this.Tiempo.Width = 80;
+            this.Tiempo.Width = 120;
             // 
             // frmAgregaPlatilloV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(603, 429);
             this.ControlBox = false;
             this.Controls.Add(this.cmbNumPe);

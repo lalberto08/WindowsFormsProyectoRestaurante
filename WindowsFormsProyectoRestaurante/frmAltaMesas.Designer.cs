@@ -56,20 +56,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(31, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 16);
+            this.label2.Size = new System.Drawing.Size(144, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Numero De Mesa";
             // 
             // lblNumPersonas
             // 
             this.lblNumPersonas.AutoSize = true;
-            this.lblNumPersonas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumPersonas.Location = new System.Drawing.Point(31, 206);
+            this.lblNumPersonas.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumPersonas.Location = new System.Drawing.Point(13, 209);
             this.lblNumPersonas.Name = "lblNumPersonas";
-            this.lblNumPersonas.Size = new System.Drawing.Size(136, 16);
+            this.lblNumPersonas.Size = new System.Drawing.Size(169, 17);
             this.lblNumPersonas.TabIndex = 2;
             this.lblNumPersonas.Text = "Numero de Personas";
             // 
@@ -92,16 +92,16 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(31, 155);
+            this.lblDescripcion.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(55, 158);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(80, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(102, 17);
             this.lblDescripcion.TabIndex = 5;
             this.lblDescripcion.Text = "Descripcion";
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(84, 270);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(196, 42);
@@ -129,7 +129,7 @@
             0,
             0});
             this.numUpNumPer.Name = "numUpNumPer";
-            this.numUpNumPer.Size = new System.Drawing.Size(74, 20);
+            this.numUpNumPer.Size = new System.Drawing.Size(121, 20);
             this.numUpNumPer.TabIndex = 2;
             this.toolPMesas.SetToolTip(this.numUpNumPer, "Selecciona un Numero de Personas");
             this.numUpNumPer.Value = new decimal(new int[] {
@@ -140,10 +140,10 @@
             // 
             // txtNumMesa
             // 
-            this.txtNumMesa.Location = new System.Drawing.Point(188, 99);
+            this.txtNumMesa.Location = new System.Drawing.Point(188, 98);
             this.txtNumMesa.Name = "txtNumMesa";
             this.txtNumMesa.ReadOnly = true;
-            this.txtNumMesa.Size = new System.Drawing.Size(100, 20);
+            this.txtNumMesa.Size = new System.Drawing.Size(121, 20);
             this.txtNumMesa.TabIndex = 6;
             this.toolPMesas.SetToolTip(this.txtNumMesa, "Numero De Mesa");
             // 
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(366, 340);
             this.Controls.Add(this.txtNumMesa);

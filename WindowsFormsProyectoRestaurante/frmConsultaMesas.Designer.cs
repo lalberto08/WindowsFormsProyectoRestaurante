@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvConsultaMesas = new System.Windows.Forms.DataGridView();
             this.NumMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +44,16 @@
             // 
             this.dgvConsultaMesas.AllowUserToAddRows = false;
             this.dgvConsultaMesas.AllowUserToDeleteRows = false;
-            this.dgvConsultaMesas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvConsultaMesas.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.dgvConsultaMesas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsultaMesas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvConsultaMesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsultaMesas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumMesa,
@@ -49,10 +61,29 @@
             this.Descripcion,
             this.NumPersonas,
             this.Estatus});
-            this.dgvConsultaMesas.Location = new System.Drawing.Point(3, 0);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConsultaMesas.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvConsultaMesas.EnableHeadersVisualStyles = false;
+            this.dgvConsultaMesas.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvConsultaMesas.Location = new System.Drawing.Point(-1, 1);
             this.dgvConsultaMesas.Name = "dgvConsultaMesas";
             this.dgvConsultaMesas.ReadOnly = true;
-            this.dgvConsultaMesas.Size = new System.Drawing.Size(611, 301);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsultaMesas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvConsultaMesas.RowHeadersVisible = false;
+            this.dgvConsultaMesas.Size = new System.Drawing.Size(614, 287);
             this.dgvConsultaMesas.TabIndex = 0;
             // 
             // NumMesa
@@ -87,13 +118,14 @@
             this.Estatus.HeaderText = "Estatus";
             this.Estatus.Name = "Estatus";
             this.Estatus.ReadOnly = true;
+            this.Estatus.Width = 150;
             // 
             // frmConsultaMesas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(607, 301);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(611, 290);
             this.Controls.Add(this.dgvConsultaMesas);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MaximizeBox = false;

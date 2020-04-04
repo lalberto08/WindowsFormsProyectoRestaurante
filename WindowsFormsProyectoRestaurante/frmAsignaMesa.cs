@@ -125,5 +125,7 @@ namespace WindowsFormsProyectoRestaurante
         {
             errorpAsignaMesa.SetError(cmbNumMesa, "");
         }
+
+
     }
 }

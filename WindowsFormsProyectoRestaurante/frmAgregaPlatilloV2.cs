@@ -45,6 +45,11 @@ namespace WindowsFormsProyectoRestaurante
             {
                 this.Close();
             }
+            //Limpiar AL Terminar
+            cmbNumPe.Text = "";
+            lblNombre.Text = "Nombre";
+            cmbDescripcion.Text = "";
+            numUpCantidad.Value = 1;
             dtgvPlatillo.Rows.Clear();
         }
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -122,7 +127,7 @@ namespace WindowsFormsProyectoRestaurante
                 cmbNumPe.Text = numPe.ToString();
                 string nombreC = admMesa.RegresaNombreCliente(numMesa);
                 lblNombre.Text = nombreC;
-
+                
                 string[] Aclave = lPLaPedidos.RegresaPlatilloClaves(numPe);
                 string[] Adesc = lPLaPedidos.RegresaPlatilloDescripcion(numPe);
                 string[] Aimporte = lPLaPedidos.RegresaPlatilloImporte(numPe);

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lblClavePlatillo = new System.Windows.Forms.Label();
             this.txtClavePlatillo = new System.Windows.Forms.TextBox();
@@ -40,13 +42,14 @@
             this.numUpTiempo = new System.Windows.Forms.NumericUpDown();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.DataGPlatillos = new System.Windows.Forms.DataGridView();
+            this.lblImporte = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.ClvPlatillo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblImporte = new System.Windows.Forms.Label();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblMenu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorPPlatillos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpTiempo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGPlatillos)).BeginInit();
@@ -65,10 +68,10 @@
             // lblClavePlatillo
             // 
             this.lblClavePlatillo.AutoSize = true;
-            this.lblClavePlatillo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClavePlatillo.Location = new System.Drawing.Point(27, 76);
+            this.lblClavePlatillo.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClavePlatillo.Location = new System.Drawing.Point(22, 75);
             this.lblClavePlatillo.Name = "lblClavePlatillo";
-            this.lblClavePlatillo.Size = new System.Drawing.Size(124, 16);
+            this.lblClavePlatillo.Size = new System.Drawing.Size(141, 17);
             this.lblClavePlatillo.TabIndex = 1;
             this.lblClavePlatillo.Text = "Clave De Platillo";
             // 
@@ -101,10 +104,12 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnRegistrar.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorPPlatillos.SetIconAlignment(this.btnRegistrar, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.btnRegistrar.Location = new System.Drawing.Point(12, 293);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(75, 34);
+            this.btnRegistrar.Size = new System.Drawing.Size(90, 34);
             this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Registrar";
             this.toolTPlatillos.SetToolTip(this.btnRegistrar, "Click Para Registrar");
@@ -113,7 +118,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(130, 293);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 34);
@@ -169,19 +174,68 @@
             // 
             this.DataGPlatillos.AllowUserToAddRows = false;
             this.DataGPlatillos.AllowUserToDeleteRows = false;
-            this.DataGPlatillos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DataGPlatillos.BackgroundColor = System.Drawing.Color.Brown;
+            this.DataGPlatillos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DataGPlatillos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Salmon;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGPlatillos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataGPlatillos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGPlatillos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClvPlatillo,
             this.DescripcionP,
             this.Importe,
             this.Tiempo});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightYellow;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGPlatillos.DefaultCellStyle = dataGridViewCellStyle4;
             this.DataGPlatillos.Location = new System.Drawing.Point(228, 61);
             this.DataGPlatillos.Name = "DataGPlatillos";
             this.DataGPlatillos.ReadOnly = true;
-            this.DataGPlatillos.Size = new System.Drawing.Size(467, 275);
+            this.DataGPlatillos.RowHeadersVisible = false;
+            this.DataGPlatillos.Size = new System.Drawing.Size(494, 275);
             this.DataGPlatillos.TabIndex = 11;
             this.toolTPlatillos.SetToolTip(this.DataGPlatillos, "Menu De Platillos Agregados");
+            // 
+            // lblImporte
+            // 
+            this.lblImporte.AutoSize = true;
+            this.lblImporte.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImporte.Location = new System.Drawing.Point(21, 184);
+            this.lblImporte.Name = "lblImporte";
+            this.lblImporte.Size = new System.Drawing.Size(156, 16);
+            this.lblImporte.TabIndex = 3;
+            this.lblImporte.Text = "Importe Del Platillo";
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(44, 129);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(102, 17);
+            this.lblDescripcion.TabIndex = 0;
+            this.lblDescripcion.Text = "Descripcion";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 236);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(186, 16);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Tiempo De Preparacion";
             // 
             // ClvPlatillo
             // 
@@ -194,57 +248,40 @@
             this.DescripcionP.HeaderText = "Descripcion";
             this.DescripcionP.Name = "DescripcionP";
             this.DescripcionP.ReadOnly = true;
-            this.DescripcionP.Width = 120;
+            this.DescripcionP.Width = 150;
             // 
             // Importe
             // 
             this.Importe.HeaderText = "Importe Del Platillo";
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
+            this.Importe.Width = 120;
             // 
             // Tiempo
             // 
             this.Tiempo.HeaderText = "Tiempo De Preperacion";
             this.Tiempo.Name = "Tiempo";
             this.Tiempo.ReadOnly = true;
+            this.Tiempo.Width = 120;
             // 
-            // lblImporte
+            // lblMenu
             // 
-            this.lblImporte.AutoSize = true;
-            this.lblImporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImporte.Location = new System.Drawing.Point(27, 185);
-            this.lblImporte.Name = "lblImporte";
-            this.lblImporte.Size = new System.Drawing.Size(131, 15);
-            this.lblImporte.TabIndex = 3;
-            this.lblImporte.Text = "Importe Del Platillo";
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(27, 130);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(91, 16);
-            this.lblDescripcion.TabIndex = 0;
-            this.lblDescripcion.Text = "Descripcion";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 237);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 15);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Tiempo De Preparacion";
+            this.lblMenu.AutoSize = true;
+            this.lblMenu.Font = new System.Drawing.Font("Lucida Calligraphy", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.Location = new System.Drawing.Point(413, 22);
+            this.lblMenu.Name = "lblMenu";
+            this.lblMenu.Size = new System.Drawing.Size(103, 36);
+            this.lblMenu.TabIndex = 12;
+            this.lblMenu.Text = "Menú";
             // 
             // frmPlatillos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(695, 336);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(717, 336);
             this.ControlBox = false;
+            this.Controls.Add(this.lblMenu);
             this.Controls.Add(this.DataGPlatillos);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label2);
@@ -286,6 +323,7 @@
         private System.Windows.Forms.NumericUpDown numUpTiempo;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.DataGridView DataGPlatillos;
+        private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClvPlatillo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;

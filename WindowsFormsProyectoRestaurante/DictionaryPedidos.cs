@@ -159,6 +159,19 @@ namespace WindowsFormsProyectoRestaurante
             }
             return existe;
         }
+        public bool BuscaPedidoDeMESA(int numM)
+        {
+            bool existe = false;
+            foreach (KeyValuePair<int, Pedido> item in DicPedidos)
+            {
+                int numMesa = item.Value.pNumMesa;
+                if (numM.Equals(numMesa))
+                {
+                    existe = true;
+                }
+            }
+            return existe;
+        }
         public void ActualizaPedido (int numPed)
         {
             int numP = 0;
