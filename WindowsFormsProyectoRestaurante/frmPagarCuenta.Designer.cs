@@ -35,12 +35,13 @@
             this.btnPagar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPagarCuenta = new System.Windows.Forms.DataGridView();
             this.NumMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumBebidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroPlatillos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPagarCuenta)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumPedido
@@ -60,12 +61,13 @@
             this.cmbNumPe.Name = "cmbNumPe";
             this.cmbNumPe.Size = new System.Drawing.Size(121, 21);
             this.cmbNumPe.TabIndex = 0;
+            this.cmbNumPe.SelectedIndexChanged += new System.EventHandler(this.cmbNumPe_SelectedIndexChanged);
             // 
             // cbxDescuento
             // 
             this.cbxDescuento.AutoSize = true;
             this.cbxDescuento.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDescuento.Location = new System.Drawing.Point(324, 16);
+            this.cbxDescuento.Location = new System.Drawing.Point(332, 16);
             this.cbxDescuento.Name = "cbxDescuento";
             this.cbxDescuento.Size = new System.Drawing.Size(103, 20);
             this.cbxDescuento.TabIndex = 1;
@@ -75,7 +77,7 @@
             // btnPagar
             // 
             this.btnPagar.Font = new System.Drawing.Font("Lucida Calligraphy", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagar.Location = new System.Drawing.Point(324, 42);
+            this.btnPagar.Location = new System.Drawing.Point(332, 42);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(117, 39);
             this.btnPagar.TabIndex = 2;
@@ -101,13 +103,13 @@
             this.lblTotal.TabIndex = 4;
             this.lblTotal.Text = "Total a pagar";
             // 
-            // dataGridView1
+            // dgvPagarCuenta
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvPagarCuenta.AllowUserToAddRows = false;
+            this.dgvPagarCuenta.AllowUserToDeleteRows = false;
+            this.dgvPagarCuenta.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.dgvPagarCuenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPagarCuenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.BlueViolet;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Calligraphy", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,44 +117,50 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPagarCuenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPagarCuenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPagarCuenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumMesa,
             this.NumBebidas,
+            this.ImporteB,
             this.NumeroPlatillos,
             this.Importe});
-            this.dataGridView1.Location = new System.Drawing.Point(1, 99);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(472, 122);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvPagarCuenta.Location = new System.Drawing.Point(1, 99);
+            this.dgvPagarCuenta.Name = "dgvPagarCuenta";
+            this.dgvPagarCuenta.ReadOnly = true;
+            this.dgvPagarCuenta.RowHeadersVisible = false;
+            this.dgvPagarCuenta.Size = new System.Drawing.Size(482, 122);
+            this.dgvPagarCuenta.TabIndex = 5;
             // 
             // NumMesa
             // 
             this.NumMesa.HeaderText = "Numero De Mesa";
             this.NumMesa.Name = "NumMesa";
             this.NumMesa.ReadOnly = true;
-            this.NumMesa.Width = 110;
             // 
             // NumBebidas
             // 
             this.NumBebidas.HeaderText = "Numero De Bebidas";
             this.NumBebidas.Name = "NumBebidas";
             this.NumBebidas.ReadOnly = true;
-            this.NumBebidas.Width = 120;
+            this.NumBebidas.Width = 80;
+            // 
+            // ImporteB
+            // 
+            this.ImporteB.HeaderText = "Importe Bebidas";
+            this.ImporteB.Name = "ImporteB";
+            this.ImporteB.ReadOnly = true;
             // 
             // NumeroPlatillos
             // 
             this.NumeroPlatillos.HeaderText = "Cantidad De Platillos";
             this.NumeroPlatillos.Name = "NumeroPlatillos";
             this.NumeroPlatillos.ReadOnly = true;
-            this.NumeroPlatillos.Width = 120;
+            this.NumeroPlatillos.Width = 80;
             // 
             // Importe
             // 
-            this.Importe.HeaderText = "Importe";
+            this.Importe.HeaderText = "Importe Platillos";
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
             this.Importe.Width = 120;
@@ -162,8 +170,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.ClientSize = new System.Drawing.Size(471, 220);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(480, 238);
+            this.Controls.Add(this.dgvPagarCuenta);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnPagar);
@@ -172,7 +180,8 @@
             this.Controls.Add(this.lblNumPedido);
             this.Name = "frmPagarCuenta";
             this.Text = "Pagar Cuenta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmPagarCuenta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPagarCuenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,9 +195,10 @@
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPagarCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumMesa;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumBebidas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteB;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroPlatillos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }

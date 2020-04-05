@@ -134,12 +134,14 @@
     </Compile>
     <Compile Include="ListPlatillos.cs" />
     <Compile Include="ListPlatillosPedidos.cs" />
+    <Compile Include="ListVentas.cs" />
     <Compile Include="Mesa.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Platillo.cs" />
     <Compile Include="PlatilloPedido.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas.cs" />
     <EmbeddedResource Include="frmAgregaPlatillo.resx">
       <DependentUpon>frmAgregaPlatillo.cs</DependentUpon>
     </EmbeddedResource>

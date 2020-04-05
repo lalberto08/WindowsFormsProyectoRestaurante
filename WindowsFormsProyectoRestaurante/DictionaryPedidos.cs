@@ -190,38 +190,6 @@ namespace WindowsFormsProyectoRestaurante
                 }
             }
         }
-        public void AgregaPlatillo(int numPed, int cantidad)
-        {
-            int numP = 0;
-            Pedido p;
-            for (int i = 0; i < DicPedidos.Count; i++)
-            {
-                KeyValuePair<int, Pedido> dato = DicPedidos.ElementAt(i);
-                numP = dato.Key;
-                p = dato.Value;
-                if (numP == numPed)
-                {
-                    p.pNumPlatillos += cantidad;
-                    break;
-                }
-            }
-        }
-        public void QuitaPlatillo(int numPed)
-        {
-            int numP = 0;
-            Pedido p;
-            for (int i = 0; i < DicPedidos.Count; i++)
-            {
-                KeyValuePair<int, Pedido> dato = DicPedidos.ElementAt(i);
-                numP = dato.Key;
-                p = dato.Value;
-                if (numP == numPed)
-                {
-                    p.pNumPlatillos -= 1;
-                    break;
-                }
-            }
-        }
         public double ImporteBebidas(int numPe)
         {
             double importeBe = 0;
@@ -237,21 +205,39 @@ namespace WindowsFormsProyectoRestaurante
             }
             return importeBe;
         }
-        public string Importe(int numPe)
+        public double ImportePlatillos(int numPe)
         {
-            string arr = "";
-            for (int i = 0; i < DicPedidos.Count; i++)
+            double importe = 0;
+            foreach (KeyValuePair<int, Pedido> item in DicPedidos)
             {
-                KeyValuePair<int, Pedido> dato = DicPedidos.ElementAt(i);
-                int numP = dato.Key;
-                Pedido p = dato.Value;
-                if (numPe == numP)
+                int numP = item.Key;
+                Pedido p = item.Value;
+                if (numP == numPe)
                 {
-                    arr = String.Format("NUMERO PEDIDO: {0}, NUMERO DE MESA: {1}, BEBIDAS: {2}, IMPORTE: {3}, NUM PLATILLOS: {4}, IMPORTE {5}",
-                    numP, p.pNumMesa, p.pnumBebidas, ImporteBebidas(numP), p.pNumPlatillos, lp.Importe(numP));
+                    importe = lp.ImportePlatillos(numP);
                 }
             }
-            return arr;
+            return importe;
+        }
+        public double ImporteTotal(int numPe, bool descuento)
+        {
+            double importeT = 0;
+            double desc = 0;
+            foreach (KeyValuePair<int, Pedido> item in DicPedidos)
+            {
+                int numP = item.Key;
+                Pedido p = item.Value;
+                if (numP == numPe)
+                {
+                    importeT = this.ImporteBebidas(numPe) + this.ImportePlatillos(numPe);
+                    if (descuento)
+                    {
+                        desc = importeT * .10;
+                        importeT -= desc;
+                    }
+                }
+            }
+            return importeT;
         }
         public bool DicVacio()
         {

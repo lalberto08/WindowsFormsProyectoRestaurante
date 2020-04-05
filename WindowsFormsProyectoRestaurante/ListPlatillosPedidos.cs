@@ -28,17 +28,21 @@ namespace WindowsFormsProyectoRestaurante
             {
                 for (int i = 0; i < lPlatillosPedidos.Count; i++)
                 {
-                    if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
+                    if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP))
                     {
-                        lPlatillosPedidos.ElementAt(i).pCantidad += cant;
-                        break;
-                    }
-                    if (lPlatillosPedidos.ElementAt(i).pNumP.Equals(numP) & !lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
-                    {
-                        Agrega(numP, claveP, cant);
-                        break;
-                    }
+                        if (lPlatillosPedidos.ElementAt(i).pClaveP.Equals(claveP))
+                        {
+                            lPlatillosPedidos.ElementAt(i).pCantidad += cant;
+                            break;
+                        }
+                        else
+                        {
+                            Agrega(numP, claveP, cant);
+                            break;
+                        }
+                    }  
                 }
+                Agrega(numP, claveP, cant);
             }
             else
             {
@@ -75,12 +79,12 @@ namespace WindowsFormsProyectoRestaurante
             }
             return cont;
         }
-        public double Importe(int numP)
+        public double ImportePlatillos(int numPe)
         {
             double total = 0;
             for (int i = 0; i < lPlatillosPedidos.Count; i++)
             {
-                if (lPlatillosPedidos.ElementAt(i).pNumP == numP)
+                if (lPlatillosPedidos.ElementAt(i).pNumP == numPe)
                 {
                     int clave = lPlatillosPedidos.ElementAt(i).pClaveP;
                     double importe = lPlatillos.Importe(clave);
@@ -89,6 +93,7 @@ namespace WindowsFormsProyectoRestaurante
             }
             return total;
         }
+
 
         public string[] ReportePlatillos()
         {
@@ -186,12 +191,14 @@ namespace WindowsFormsProyectoRestaurante
             string desc = "";
             int clavePla = 0, cant = 0;
 
-                for (int j = 0; j < lPlatillosPedidos.Count; j++)
+            for (int j = 0; j < lPlatillosPedidos.Count; j++)
+            {
+                if (lPlatillosPedidos.ElementAt(j).pNumP == numP)
                 {
                     clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
                     cant = lPlatillosPedidos.ElementAt(j).pCantidad;
                     for (int k = 0; k < claves.Length; k++)
-                    {  
+                    {
                         if (clavePla == claves[k])
                         {
                             desc = lPlatillos.RegresaDescripcion(claves[k]);
@@ -204,6 +211,7 @@ namespace WindowsFormsProyectoRestaurante
                         }
                     }
                 }
+            }
             return cadena;
         }
         public string[] RegresaPlatilloImporte(int numP)
@@ -218,19 +226,22 @@ namespace WindowsFormsProyectoRestaurante
 
             for (int j = 0; j < lPlatillosPedidos.Count; j++)
             {
-                clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
-                cant = lPlatillosPedidos.ElementAt(j).pCantidad;
-                for (int k = 0; k < claves.Length; k++)
+                if (lPlatillosPedidos.ElementAt(j).pNumP == numP)
                 {
-                    if (clavePla == claves[k])
+                    clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
+                    cant = lPlatillosPedidos.ElementAt(j).pCantidad;
+                    for (int k = 0; k < claves.Length; k++)
                     {
-                        importe = lPlatillos.RegresaImporte(claves[k]);
-                        for (int l = 0; l < cant; l++)
+                        if (clavePla == claves[k])
                         {
-                            cadena[pos] = importe.ToString();
-                            pos++;
+                            importe = lPlatillos.RegresaImporte(claves[k]);
+                            for (int l = 0; l < cant; l++)
+                            {
+                                cadena[pos] = importe.ToString();
+                                pos++;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }
@@ -247,19 +258,22 @@ namespace WindowsFormsProyectoRestaurante
 
             for (int j = 0; j < lPlatillosPedidos.Count; j++)
             {
-                clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
-                cant = lPlatillosPedidos.ElementAt(j).pCantidad;
-                for (int k = 0; k < claves.Length; k++)
+                if (lPlatillosPedidos.ElementAt(j).pNumP == numP)
                 {
-                    if (clavePla == claves[k])
+                    clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
+                    cant = lPlatillosPedidos.ElementAt(j).pCantidad;
+                    for (int k = 0; k < claves.Length; k++)
                     {
-                        tiempo = lPlatillos.RegresaTiempo(claves[k]);
-                        for (int l = 0; l < cant; l++)
+                        if (clavePla == claves[k])
                         {
-                            cadena[pos] = tiempo.ToString();
-                            pos++;
+                            tiempo = lPlatillos.RegresaTiempo(claves[k]);
+                            for (int l = 0; l < cant; l++)
+                            {
+                                cadena[pos] = tiempo.ToString();
+                                pos++;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }
@@ -273,9 +287,11 @@ namespace WindowsFormsProyectoRestaurante
             int pos = 0;
 
             int clavePla = 0, cant = 0;
-
+            
             for (int j = 0; j < lPlatillosPedidos.Count; j++)
             {
+                if (lPlatillosPedidos.ElementAt(j).pNumP==numP)
+                {
                 clavePla = lPlatillosPedidos.ElementAt(j).pClaveP;
                 cant = lPlatillosPedidos.ElementAt(j).pCantidad;
                 for (int k = 0; k < claves.Length; k++)
@@ -289,6 +305,7 @@ namespace WindowsFormsProyectoRestaurante
                         }
                         break;
                     }
+                  }
                 }
             }
             return cadena;
